@@ -1,3 +1,5 @@
+package Interpreter.Graphics;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -5,9 +7,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-public class Master extends Application {
+public class App extends Application {
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
 
         Pane root = new Pane();
 
