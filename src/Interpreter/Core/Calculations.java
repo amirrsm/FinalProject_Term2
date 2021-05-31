@@ -1,4 +1,7 @@
 package Interpreter.Core;
 
-public class Calculations {
+public class Calculations implements Feasibility {
+    public void doSomething() {
+
+    }
 }

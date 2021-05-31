@@ -1,4 +1,8 @@
 package Interpreter.Core;
 
-public class Multiplication extends Calculations implements Feasibility{
+public class Multiplication extends Calculations {
+    @Override
+    public void doSomething(){
+
+    }
 }

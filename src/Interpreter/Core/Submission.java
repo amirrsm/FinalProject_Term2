@@ -1,4 +1,8 @@
 package Interpreter.Core;
 
-public class Submission extends Calculations implements Feasibility{
+public class Submission extends Calculations {
+    @Override
+    public void doSomething(){
+
+    }
 }
