@@ -1,5 +1,5 @@
 package Interpreter.Core;
 
 public interface Feasibility {
-    void doSomething();
+    double statement(String line, Int intData, Float floatData);
 }
