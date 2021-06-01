@@ -17,7 +17,6 @@ public class Reader {
             Int intData = new Int();
             Float floatData = new Float();
             Calculations calculate;
-
             while (true) {
                 String line = reader.readLine();
                 if (line == null)
@@ -37,16 +36,16 @@ public class Reader {
                     floatData.put("key", -1.0 * 0);
                 } else if (line.matches(Patterns.sumRegex)) {
                     calculate = new Sum();
-                    calculate.doSomething();
+                    calculate.statement(line, intData, floatData);
                 } else if (line.matches(Patterns.subRegex)) {
                     calculate = new Submission();
-                    calculate.doSomething();
+                    calculate.statement(line, intData, floatData);
                 } else if (line.matches(Patterns.mulRegex)) {
                     calculate = new Multiplication();
-                    calculate.doSomething();
+                    calculate.statement(line, intData, floatData);
                 } else if (line.matches(Patterns.divRegex)) {
                     calculate = new Division();
-                    calculate.doSomething();
+                    calculate.statement(line, intData, floatData);
                 } else if (line.matches(Patterns.printRegex)) {
                     Print printer = new Print();
                     printer.print();
