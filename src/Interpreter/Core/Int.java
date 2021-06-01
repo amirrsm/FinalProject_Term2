@@ -1,8 +1,7 @@
 package Interpreter.Core;
 
-public class Int extends Data{
-    @Override
-    public void doSomething() {
+import java.util.HashMap;
 
-    }
+public class Int extends HashMap<String, Integer> {
+
 }

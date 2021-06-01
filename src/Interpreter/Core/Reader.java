@@ -14,7 +14,8 @@ public class Reader {
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(new File(path)));
-            Data data;
+            Int intData = new Int();
+            Float floatData = new Float();
             Calculations calculate;
 
             while (true) {
@@ -23,11 +24,9 @@ public class Reader {
                     break;
                 line = line.trim();
                 if (line.matches(Patterns.intRegex)) {
-                    data = new Int();
-                    data.doSomething();
+                    intData.put("key", 0);
                 } else if (line.matches(Patterns.floatRegex)) {
-                    data = new Float();
-                    data.doSomething();
+                    floatData.put("key", 0.0);
                 } else if (line.matches(Patterns.sumRegex)) {
                     calculate = new Sum();
                     calculate.doSomething();
