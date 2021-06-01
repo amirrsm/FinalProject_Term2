@@ -23,17 +23,9 @@ public class Reader {
                     break;
                 line = line.trim();
                 if (line.matches(Patterns.intRegex)) {
-                    intData.put("key", 0);
-                } else if (line.matches(Patterns.negativeIntRegex)) {
-                    intData.put("key", -0);
+                    intData.setParams(line);
                 } else if (line.matches(Patterns.floatRegex)) {
-                    floatData.put("key", 0.0);
-                } else if (line.matches(Patterns.negativeFloatRegex)) {
-                    floatData.put("key", -0.0);
-                } else if (line.matches(Patterns.floatRegexWithoutPoint)) {
-                    floatData.put("key", 1.0 * 0);
-                } else if (line.matches(Patterns.negativeFloatRegexWithoutPoint)) {
-                    floatData.put("key", -1.0 * 0);
+                    floatData.setParams(line);
                 } else if (line.matches(Patterns.sumRegex)) {
                     calculate = new Sum();
                     calculate.statement(line, intData, floatData);
