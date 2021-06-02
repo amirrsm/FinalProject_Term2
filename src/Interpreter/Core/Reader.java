@@ -7,13 +7,16 @@ public class Reader {
     /**
      * reads the file text and call the related classes
      *
-     * @param path the direction of the file
+     * @param pathOrData the direction of the file
      * @throws Exception in case of problems which caused by for statement
      */
-    public void Read(String path) throws Exception {
-
+    public static void read(String pathOrData) throws Exception {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(new File(path)));
+            BufferedReader reader;
+            if (pathOrData.contains(".txt"))
+                reader = new BufferedReader(new FileReader(new File(pathOrData)));
+            else
+                reader = new BufferedReader(new StringReader(pathOrData));
             Int intData = new Int();
             Float floatData = new Float();
             Calculations calculate;
@@ -42,14 +45,17 @@ public class Reader {
                     Print printer = new Print();
                     int result = printer.print(line, intData, floatData);
                 } else if (line.matches(Patterns.forStartingRegex)) {
-                    For loop = new For();
+                    For loop = new For(line);
+                    StringWriter writer = new StringWriter();
+                    PrintWriter output = new PrintWriter(new BufferedWriter(writer));
                     while (!line.matches(Patterns.forEndingRegex)) {
                         line = reader.readLine();
                         if (line == null)
-                            throw new Exception("for statement was invalid");
+                            throw new Exception("for statement was invalid");   //TODO change the kind of Exception
                         line = line.trim();
-                        //TODO change the kind of Exception above
+                        output.println(line);
                     }
+                    loop.forOperator(writer);
                 }
             }
 
