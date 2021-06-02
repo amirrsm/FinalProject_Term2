@@ -40,7 +40,7 @@ public class Reader {
                     calculate.statement(line, intData, floatData);
                 } else if (line.matches(Patterns.printRegex)) {
                     Print printer = new Print();
-                    printer.print();
+                    int result = printer.print(line, intData, floatData);
                 } else if (line.matches(Patterns.forStartingRegex)) {
                     For loop = new For();
                     while (!line.matches(Patterns.forEndingRegex)) {
@@ -48,7 +48,6 @@ public class Reader {
                         if (line == null)
                             throw new Exception("for statement was invalid");
                         line = line.trim();
-                        //TODO save this lines in loop object
                         //TODO change the kind of Exception above
                     }
                 }
