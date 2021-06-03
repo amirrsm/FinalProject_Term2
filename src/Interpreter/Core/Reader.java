@@ -64,4 +64,12 @@ public class Reader {
         }
 
     }
+
+    public static void main(String[] args) {
+        try {
+            Reader.read("F:\\path.txt");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
