@@ -30,7 +30,6 @@ public class Sum extends Calculations {
             } else
                 index++;
         }
-        System.out.println(keys[0] + " " + keys[1] + " " + keys[2]);
         if(intData.containsKey(keys[0])) {
             intData.put(keys[0], intData.get(keys[1]) + intData.get(keys[2]));
             return intData.get(keys[0]);

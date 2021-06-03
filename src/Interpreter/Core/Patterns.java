@@ -8,6 +8,6 @@ public class Patterns {
     public final static String mulRegex = "[a-zA-Z][a-zA-Z_0-9]*[\\s]+=[\\s]+[a-zA-Z_][a-zA-Z_0-9]*[\\s]+[*][\\s]+[a-zA-Z][a-zA-Z_0-9]*";
     public final static String divRegex = "[a-zA-Z][a-zA-Z_0-9]*[\\s]+=[\\s]+[a-zA-Z_][a-zA-Z_0-9]*[\\s]+[/][\\s]+[a-zA-Z][a-zA-Z_0-9]*";
     public final static String printRegex = "print[\\s]+[a-zA-Z_][a-zA-Z_0-9]*";
-    public final static String forStartingRegex = "for[\\s]+[\\d]";
+    public final static String forStartingRegex = "for[\\s]+[\\d]+";
     public final static String forEndingRegex = "end[\\s]+for";
 }

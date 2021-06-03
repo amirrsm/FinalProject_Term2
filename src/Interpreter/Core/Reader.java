@@ -4,6 +4,10 @@ import java.io.*;
 
 public class Reader {
 
+
+    static Int intData = new Int();
+    static Float floatData = new Float();
+
     /**
      * reads the file text and call the related classes
      *
@@ -17,8 +21,7 @@ public class Reader {
                 reader = new BufferedReader(new FileReader(new File(pathOrData)));
             else
                 reader = new BufferedReader(new StringReader(pathOrData));
-            Int intData = new Int();
-            Float floatData = new Float();
+
             Calculations calculate;
             while (true) {
                 String line = reader.readLine();
@@ -26,7 +29,6 @@ public class Reader {
                     break;
                 line = line.trim();
                 if (line.matches(Patterns.intRegex)) {
-                    System.out.println(true);
                     intData.setParams(line);
                 } else if (line.matches(Patterns.floatRegex)) {
                     floatData.setParams(line);
@@ -47,16 +49,18 @@ public class Reader {
                     int result = printer.print(line, intData, floatData);
                 } else if (line.matches(Patterns.forStartingRegex)) {
                     For loop = new For(line);
-                    StringWriter writer = new StringWriter();
-                    PrintWriter output = new PrintWriter(new BufferedWriter(writer));
+                    StringBuilder builder = new StringBuilder();
                     while (!line.matches(Patterns.forEndingRegex)) {
                         line = reader.readLine();
                         if (line == null)
-                            throw new Exception("for statement was invalid");   //TODO change the kind of Exception
+                            throw new InvalidForException("for statement was invalid");   //TODO change the kind of Exception
+                        if(line.contains("end"))
+                            break;
                         line = line.trim();
-                        output.println(line);
+                        builder.append(line).append("\n");
                     }
-                    loop.forOperator(writer);
+
+                    loop.forOperator(builder.toString());
                 }
             }
 
@@ -71,6 +75,13 @@ public class Reader {
             Reader.read("F:\\path.txt");
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    static class InvalidForException extends Exception{
+
+        public InvalidForException(String string) {
+            super(string);
         }
     }
 }
