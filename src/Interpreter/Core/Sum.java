@@ -26,7 +26,6 @@ public class Sum extends Calculations {
                         break;
                 }
                 keys[i++] = builder.toString();
-                System.out.println(builder);
                 builder.delete(0, builder.length());
             } else
                 index++;

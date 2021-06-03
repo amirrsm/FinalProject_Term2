@@ -26,6 +26,7 @@ public class Reader {
                     break;
                 line = line.trim();
                 if (line.matches(Patterns.intRegex)) {
+                    System.out.println(true);
                     intData.setParams(line);
                 } else if (line.matches(Patterns.floatRegex)) {
                     floatData.setParams(line);
