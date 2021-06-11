@@ -53,7 +53,7 @@ public class Reader {
                     while (!line.matches(Patterns.forEndingRegex)) {
                         line = reader.readLine();
                         if (line == null)
-                            throw new InvalidForException("for statement was invalid");   //TODO change the kind of Exception
+                            throw new InvalidForException("for statement was invalid");
                         if(line.contains("end"))
                             break;
                         line = line.trim();
