@@ -1,5 +1,6 @@
 package Interpreter.Core;
 
+import javax.crypto.spec.PSource;
 import java.io.*;
 
 public class Reader {
@@ -11,16 +12,13 @@ public class Reader {
     /**
      * reads the file text and call the related classes
      *
-     * @param pathOrData the direction of the file
+     * @param Data the direction of the file
      * @throws Exception in case of problems which caused by for statement
      */
-    public static void read(String pathOrData) throws Exception {
+    public static void read(String Data) throws Exception {
         try {
             BufferedReader reader;
-            if (pathOrData.contains(".txt"))
-                reader = new BufferedReader(new FileReader(new File(pathOrData)));
-            else
-                reader = new BufferedReader(new StringReader(pathOrData));
+            reader = new BufferedReader(new StringReader(Data));
 
             Calculations calculate;
             while (true) {
@@ -28,7 +26,7 @@ public class Reader {
                 if (line == null)
                     break;
                 line = line.trim();
-                if (line.matches(Patterns.intRegex)) {
+                if (line.contains("int")) {
                     intData.setParams(line);
                 } else if (line.matches(Patterns.floatRegex)) {
                     floatData.setParams(line);
@@ -54,7 +52,7 @@ public class Reader {
                         line = reader.readLine();
                         if (line == null)
                             throw new InvalidForException("for statement was invalid");
-                        if(line.contains("end"))
+                        if (line.contains("end"))
                             break;
                         line = line.trim();
                         builder.append(line).append("\n");
@@ -70,15 +68,7 @@ public class Reader {
 
     }
 
-    public static void main(String[] args) {
-        try {
-            Reader.read("F:\\path.txt");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    static class InvalidForException extends Exception{
+    static class InvalidForException extends Exception {
 
         public InvalidForException(String string) {
             super(string);

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.CompilePageController">
+    <top>
+        <HBox alignment="CENTER" layoutX="169.0" layoutY="36.0" prefHeight="114.0" prefWidth="1193.0" spacing="75.0"
+              BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="fileName" text="FileName">
+                    <font>
+                        <Font name="Century" size="24.0"/>
+                    </font>
+                </Label>
+                <Button fx:id="chooseFile" mnemonicParsing="false" text="Choose File" onAction="#onCompileButtons">
+                    <font>
+                        <Font name="Century" size="24.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="newFile" mnemonicParsing="false" text="New" onAction="#onCompileButtons">
+                    <font>
+                        <Font name="Century" size="24.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="saveFile" mnemonicParsing="false" text="Save" onAction="#onCompileButtons">
+                    <font>
+                        <Font name="Century" size="24.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="compileFile" mnemonicParsing="false" text="Compile" onAction="#onCompileButtons">
+                    <font>
+                        <Font name="Century" size="24.0"/>
+                    </font>
+                </Button>
+            </children>
+            <BorderPane.margin>
+                <Insets/>
+            </BorderPane.margin>
+            <padding>
+                <Insets left="50.0" right="50.0"/>
+            </padding>
+        </HBox>
+    </top>
+    <bottom>
+        <HBox prefHeight="239.0" prefWidth="1400.0" spacing="50.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextArea fx:id="terminalBox" editable="false" prefHeight="200.0" prefWidth="750.0"
+                          style="-fx-background-color: green; -fx-font-family: century; -fx-font-size: 20;"/>
+                <TextArea fx:id="errorBox" editable="false" prefHeight="200.0" prefWidth="500.0"
+                          style="-fx-background-color: red; -fx-font-family: century; -fx-font-size: 20;"/>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="50.0" right="50.0" top="10.0"/>
+            </padding>
+        </HBox>
+    </bottom>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextArea fx:id="codingBox" prefHeight="200.0" prefWidth="200.0"
+                          style="-fx-background-color: blue; -fx-font-family: century; -fx-font-size: 24;"
+                          AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0"
+                          AnchorPane.topAnchor="10.0"/>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

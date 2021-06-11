@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class App extends Application {
@@ -16,7 +17,7 @@ public class App extends Application {
     public void start(Stage primaryStage) {
 
         FXMLLoader firstFXML = new FXMLLoader();
-        firstFXML.setLocation(App.class.getResource("StartPage.fxml"));
+        firstFXML.setLocation(App.class.getResource("CompilePage.fxml"));
         try {
             startPage = firstFXML.load();
         } catch (IOException e) {
@@ -29,6 +30,7 @@ public class App extends Application {
         }
 
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
