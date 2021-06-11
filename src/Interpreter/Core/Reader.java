@@ -1,6 +1,5 @@
 package Interpreter.Core;
 
-import javax.crypto.spec.PSource;
 import java.io.*;
 
 public class Reader {
@@ -26,7 +25,7 @@ public class Reader {
                 if (line == null)
                     break;
                 line = line.trim();
-                if (line.contains("int")) {
+                if (line.matches(Patterns.intRegex)) {
                     intData.setParams(line);
                 } else if (line.matches(Patterns.floatRegex)) {
                     floatData.setParams(line);
