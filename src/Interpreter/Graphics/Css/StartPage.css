@@ -6,19 +6,23 @@
 .CompileButton {
     -fx-background-image: url('file:src/Interpreter/Graphics/Pictures/StartPage/compile.png');
     -fx-background-size: 100% 100%;
+    -fx-background-radius: 50;
 }
 
 .StoryButton {
     -fx-background-image: url('file:src/Interpreter/Graphics/Pictures/StartPage/story.png');
     -fx-background-size: 100% 100%;
+    -fx-background-radius: 50;
 }
 
 .SettingButton {
     -fx-background-image: url('file:src/Interpreter/Graphics/Pictures/StartPage/setting.png');
     -fx-background-size: 100% 100%;
+    -fx-background-radius: 50;
 }
 
 .ExitButton {
     -fx-background-image: url('file:src/Interpreter/Graphics/Pictures/StartPage/exit.png');
     -fx-background-size: 100% 100%;
+    -fx-background-radius: 50;
 }

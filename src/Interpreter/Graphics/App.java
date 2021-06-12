@@ -18,7 +18,7 @@ public class App extends Application {
     public void start(Stage primaryStage) {
 
         xmlFile = new FXMLLoader();
-        xmlFile.setLocation(App.class.getResource("Fxml/StoryPage.fxml"));
+        xmlFile.setLocation(App.class.getResource("Fxml/CompilePage.fxml"));
         try {
             root = xmlFile.load();
         } catch (IOException e) {
