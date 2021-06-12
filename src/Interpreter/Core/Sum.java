@@ -1,9 +1,9 @@
 package Interpreter.Core;
 
-public class Sum extends Calculations {
+public class Sum extends Calculations{
 
     @Override
-    public double statement(String line, Int intData, Float floatData) {
+    public double statement(String line, Int intData, Float floatData) throws NumberFormatException {
         char[] lineArray = line.toCharArray();
         StringBuilder builder = new StringBuilder();
         int index = 0;
@@ -37,7 +37,11 @@ public class Sum extends Calculations {
                 index++;
         }
         if (intData.containsKey(keys[0])) {
-            intData.put(keys[0], Integer.parseInt(results[1]) + Integer.parseInt(results[2]));
+            String result1 = results[1].split("[.]")[0];
+            String result2 = results[2].split("[.]")[0];
+            if(result1.length() > 8 || result2.length() > 8)
+                throw new NumberFormatException("integer is too long!");
+            intData.put(keys[0], Integer.parseInt(result1) + Integer.parseInt(result2));
             return intData.get(keys[0]);
         } else if (floatData.containsKey(keys[0])) {
             floatData.put(keys[0],(double) java.lang.Float.parseFloat(results[1]) + java.lang.Float.parseFloat(results[2]));
