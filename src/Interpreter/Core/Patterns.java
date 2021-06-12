@@ -4,7 +4,7 @@ public class Patterns {
     public final static String variable = "[a-zA-Z_][a-zA-Z_0-9]*";
     public final static String intNumber = "[-]?[0-9][0-9]{0,7}";
     public final static String floatNumber = "[-]?[0-9]+.[0-9]{1,10}";
-    public final static String number = "[0-9][0-9]{0,7}[.]?";
+    public final static String number = "[0-9][0-9]{0,7}[.[\\d]*]?"; //TODO should change
     public final static String intRegex1 = "int[\\s]+" + variable + "[\\s]+[=][\\s]+" + intNumber;
     public final static String intRegex2 = "int[\\s]+" + variable;
     public final static String floatRegex1 = "float[\\s]+" + variable + "[\\s]+[=][\\s]+" + floatNumber;
