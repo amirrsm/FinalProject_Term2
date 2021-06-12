@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.StartPageController">
+    <center>
+        <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" styleClass="MainBackground" stylesheets="@../Css/StartPage.css" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="compile" cache="true" mnemonicParsing="false" onAction="#onStartButtons" prefHeight="100.0" prefWidth="300.0" style="-fx-background-radius: 50;" styleClass="CompileButton" stylesheets="@../Css/StartPage.css" />
+                <Button fx:id="story" mnemonicParsing="false" onAction="#onStartButtons" prefHeight="100.0" prefWidth="300.0" style="-fx-background-radius: 50;" styleClass="StoryButton" stylesheets="@../Css/StartPage.css" />
+                <Button fx:id="setting" mnemonicParsing="false" onAction="#onStartButtons" prefHeight="100.0" prefWidth="300.0" style="-fx-background-radius: 50;" styleClass="SettingButton" stylesheets="@../Css/StartPage.css" />
+                <Button fx:id="exit" mnemonicParsing="false" onAction="#onStartButtons" prefHeight="100.0" prefWidth="300.0" style="-fx-background-radius: 50;" styleClass="ExitButton" stylesheets="@../Css/StartPage.css" />
+            </children>
+         <padding>
+            <Insets bottom="30.0" />
+         </padding>
+        </VBox>
+    </center>
+</BorderPane>

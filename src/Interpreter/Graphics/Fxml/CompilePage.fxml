@@ -6,7 +6,7 @@
 <?import javafx.scene.text.*?>
 
 <BorderPane prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.CompilePageController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.CompilePageController">
     <top>
         <HBox alignment="CENTER" layoutX="169.0" layoutY="36.0" prefHeight="114.0" prefWidth="1193.0" spacing="75.0"
               BorderPane.alignment="CENTER">
@@ -16,22 +16,17 @@
                         <Font name="Century" size="24.0"/>
                     </font>
                 </Label>
-                <Button fx:id="chooseFile" mnemonicParsing="false" text="Choose File" onAction="#onCompileButtons">
+                <Button fx:id="chooseFile" mnemonicParsing="false" onAction="#onCompileButtons" text="Choose File">
                     <font>
                         <Font name="Century" size="24.0"/>
                     </font>
                 </Button>
-                <Button fx:id="newFile" mnemonicParsing="false" text="New" onAction="#onCompileButtons">
+                <Button fx:id="newFile" mnemonicParsing="false" onAction="#onCompileButtons" text="New">
                     <font>
                         <Font name="Century" size="24.0"/>
                     </font>
                 </Button>
-                <Button fx:id="saveFile" mnemonicParsing="false" text="Save" onAction="#onCompileButtons">
-                    <font>
-                        <Font name="Century" size="24.0"/>
-                    </font>
-                </Button>
-                <Button fx:id="compileFile" mnemonicParsing="false" text="Compile" onAction="#onCompileButtons">
+                <Button fx:id="compileFile" mnemonicParsing="false" onAction="#onCompileButtons" text="Compile">
                     <font>
                         <Font name="Century" size="24.0"/>
                     </font>

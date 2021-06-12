@@ -1,4 +1,4 @@
-package Interpreter.Graphics;
+package Interpreter.Graphics.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +20,22 @@ public class StartPageController implements Initializable {
     public Button exit;
 
     @FXML
-    private void handleStartButtons(ActionEvent event) {
+    private void onStartButtons(ActionEvent event) {
+        if (event.getSource().equals(compile)){
+
+        }
+
+        if (event.getSource().equals(story)){
+
+        }
+
+        if (event.getSource().equals(setting)){
+
+        }
+
+        if (event.getSource().equals(exit)){
+            System.exit(0);
+        }
     }
 
     @Override

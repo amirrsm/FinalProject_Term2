@@ -10,23 +10,24 @@ import java.io.IOException;
 
 public class App extends Application {
 
-    static Pane startPage = null;
+    static Pane root = null;
     static Scene scene = null;
+    static FXMLLoader xmlFile = null;
 
     @Override
     public void start(Stage primaryStage) {
 
-        FXMLLoader firstFXML = new FXMLLoader();
-        firstFXML.setLocation(App.class.getResource("CompilePage.fxml"));
+        xmlFile = new FXMLLoader();
+        xmlFile.setLocation(App.class.getResource("Fxml/StoryPage.fxml"));
         try {
-            startPage = firstFXML.load();
+            root = xmlFile.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 
-        if (startPage != null) {
-            scene = new Scene(startPage);
+        if (root != null) {
+            scene = new Scene(root);
         }
 
         primaryStage.setScene(scene);

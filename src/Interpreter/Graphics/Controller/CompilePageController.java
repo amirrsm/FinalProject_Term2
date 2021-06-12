@@ -1,4 +1,4 @@
-package Interpreter.Graphics;
+package Interpreter.Graphics.Controller;
 
 import Interpreter.Core.Reader;
 import javafx.event.ActionEvent;
@@ -14,10 +14,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CompilePageController implements Initializable {
+
     public Label fileName;
     public Button chooseFile;
     public Button newFile;
-    public Button saveFile;
     public Button compileFile;
     public TextArea codingBox;
     public TextArea terminalBox;
@@ -26,19 +26,17 @@ public class CompilePageController implements Initializable {
     public void onCompileButtons(ActionEvent event) {
 
         File file;
+        FileChooser.ExtensionFilter suffix = new FileChooser.ExtensionFilter("TEXT files (*.txt)", "*.txt");
+        FileChooser selectFile = new FileChooser();
+        selectFile.getExtensionFilters().add(suffix);
 
         if (event.getSource().equals(chooseFile)) {
-            FileChooser.ExtensionFilter suffix = new FileChooser.ExtensionFilter("TEXT files (*.txt)", "*.txt");
-            FileChooser selectFile = new FileChooser();
-            selectFile.getExtensionFilters().add(suffix);
             selectFile.setTitle("Open File");
             file = selectFile.showOpenDialog(new Stage());
             fileName.setText(file.getName());
-
             BufferedReader reader = null;
             try {
                 reader = new BufferedReader(new FileReader(file));
-
                 StringBuilder lines = new StringBuilder();
                 while (true) {
                     String line = reader.readLine();
@@ -52,16 +50,36 @@ public class CompilePageController implements Initializable {
                 codingBox.setText(lines.toString());
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-
-
         }
+
         if (event.getSource().equals(newFile)) {
 
+            BufferedWriter writer = null;
+            selectFile.setTitle("Save File");
+            file = selectFile.showSaveDialog(new Stage());
+            try {
+                writer = new BufferedWriter(new FileWriter(file));
+                writer.write(codingBox.getText());
+                writer.close();
+                fileName.setText(file.getName());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-        if (event.getSource().equals(saveFile)) {
 
-        }
         if (event.getSource().equals(compileFile)) {
             try {
                 Reader.read(codingBox.getText());

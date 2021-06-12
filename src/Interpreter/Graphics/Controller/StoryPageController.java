@@ -1,4 +1,4 @@
-package Interpreter.Graphics;
+package Interpreter.Graphics.Controller;
 
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
