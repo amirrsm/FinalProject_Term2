@@ -41,13 +41,13 @@
     <bottom>
         <HBox prefHeight="239.0" prefWidth="1400.0" spacing="50.0" BorderPane.alignment="CENTER">
             <children>
-                <TextArea id="terminal" fx:id="terminalBox" opacity="0.9" prefHeight="198.0" prefWidth="573.0" style="-fx-background-color: green; -fx-font-family: century; -fx-font-size: 20;" />
+                <TextArea fx:id="terminalBox" editable="false" opacity="0.9" prefHeight="198.0" prefWidth="573.0" style="-fx-background-color: green; -fx-font-family: century; -fx-font-size: 20;" />
                 <TextArea fx:id="errorBox" editable="false" opacity="0.9" prefHeight="198.0" prefWidth="340.0" style="-fx-background-color: red; -fx-font-family: century; -fx-font-size: 20;" />
-            <Button fx:id="back" alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#onCompileButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back" stylesheets="@../Css/CompilePage.css">
-               <HBox.margin>
-                  <Insets top="120.0" />
-               </HBox.margin>
-            </Button>
+                <Button fx:id="back" alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#onCompileButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back" stylesheets="@../Css/CompilePage.css">
+                    <HBox.margin>
+                        <Insets top="120.0" />
+                    </HBox.margin>
+                </Button>
             </children>
             <padding>
                 <Insets bottom="30.0" left="100.0" right="100.0" top="10.0" />
