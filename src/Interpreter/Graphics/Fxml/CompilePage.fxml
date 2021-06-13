@@ -5,61 +5,59 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.CompilePageController">
+<BorderPane prefHeight="750.0" prefWidth="1400.0" styleClass="MainBackground" stylesheets="@../Css/CompilePage.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.CompilePageController">
     <top>
-        <HBox alignment="CENTER" layoutX="169.0" layoutY="36.0" prefHeight="114.0" prefWidth="1193.0" spacing="75.0"
-              BorderPane.alignment="CENTER">
+        <HBox alignment="CENTER" layoutX="169.0" layoutY="36.0" prefHeight="114.0" prefWidth="1193.0" spacing="75.0" BorderPane.alignment="CENTER">
             <children>
-                <Label fx:id="fileName" text="FileName">
+                <Label fx:id="fileName" alignment="CENTER" styleClass="FileName" stylesheets="@../Css/CompilePage.css" text="  FileName  " textAlignment="CENTER">
                     <font>
-                        <Font name="Century" size="24.0"/>
+                        <Font name="Century" size="24.0" />
                     </font>
                 </Label>
-                <Button fx:id="chooseFile" mnemonicParsing="false" onAction="#onCompileButtons" text="Choose File">
+                <Button fx:id="chooseFile" mnemonicParsing="false" onAction="#onCompileButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.85" prefHeight="75.0" prefWidth="200.0" styleClass="ChooseFile" stylesheets="@../Css/CompilePage.css">
                     <font>
-                        <Font name="Century" size="24.0"/>
+                        <Font name="Century" size="24.0" />
                     </font>
                 </Button>
-                <Button fx:id="newFile" mnemonicParsing="false" onAction="#onCompileButtons" text="New">
+                <Button fx:id="newFile" mnemonicParsing="false" onAction="#onCompileButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.85" prefHeight="75.0" prefWidth="200.0" styleClass="NewFile" stylesheets="@../Css/CompilePage.css">
                     <font>
-                        <Font name="Century" size="24.0"/>
+                        <Font name="Century" size="24.0" />
                     </font>
                 </Button>
-                <Button fx:id="compileFile" mnemonicParsing="false" onAction="#onCompileButtons" text="Compile">
+                <Button fx:id="compileFile" mnemonicParsing="false" onAction="#onCompileButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.85" prefHeight="75.0" prefWidth="200.0" styleClass="Compile" stylesheets="@../Css/CompilePage.css">
                     <font>
-                        <Font name="Century" size="24.0"/>
+                        <Font name="Century" size="24.0" />
                     </font>
                 </Button>
             </children>
             <BorderPane.margin>
-                <Insets/>
+                <Insets />
             </BorderPane.margin>
             <padding>
-                <Insets left="50.0" right="50.0"/>
+                <Insets left="50.0" right="50.0" />
             </padding>
         </HBox>
     </top>
     <bottom>
         <HBox prefHeight="239.0" prefWidth="1400.0" spacing="50.0" BorderPane.alignment="CENTER">
             <children>
-                <TextArea fx:id="terminalBox" editable="false" prefHeight="200.0" prefWidth="750.0"
-                          style="-fx-background-color: green; -fx-font-family: century; -fx-font-size: 20;"/>
-                <TextArea fx:id="errorBox" editable="false" prefHeight="200.0" prefWidth="500.0"
-                          style="-fx-background-color: red; -fx-font-family: century; -fx-font-size: 20;"/>
+                <TextArea id="terminal" fx:id="terminalBox" opacity="0.9" prefHeight="198.0" prefWidth="573.0" style="-fx-background-color: green; -fx-font-family: century; -fx-font-size: 20;" />
+                <TextArea fx:id="errorBox" editable="false" opacity="0.9" prefHeight="198.0" prefWidth="340.0" style="-fx-background-color: red; -fx-font-family: century; -fx-font-size: 20;" />
+            <Button fx:id="back" alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#onCompileButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back" stylesheets="@../Css/CompilePage.css">
+               <HBox.margin>
+                  <Insets top="120.0" />
+               </HBox.margin>
+            </Button>
             </children>
             <padding>
-                <Insets bottom="10.0" left="50.0" right="50.0" top="10.0"/>
+                <Insets bottom="30.0" left="100.0" right="100.0" top="10.0" />
             </padding>
         </HBox>
     </bottom>
     <center>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <TextArea fx:id="codingBox" prefHeight="200.0" prefWidth="200.0"
-                          style="-fx-background-color: blue; -fx-font-family: century; -fx-font-size: 24;"
-                          AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0"
-                          AnchorPane.topAnchor="10.0"/>
+                <TextArea fx:id="codingBox" opacity="0.9" prefHeight="350.0" prefWidth="1200.0" style="-fx-background-color: blue; -fx-font-family: century; -fx-font-size: 24;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
             </children>
         </AnchorPane>
     </center>

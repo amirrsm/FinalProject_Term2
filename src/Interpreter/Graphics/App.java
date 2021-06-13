@@ -10,15 +10,15 @@ import java.io.IOException;
 
 public class App extends Application {
 
-    static Pane root = null;
-    static Scene scene = null;
-    static FXMLLoader xmlFile = null;
+    public static Pane root = null;
+    public static Scene scene = null;
+    public static FXMLLoader xmlFile = null;
 
     @Override
     public void start(Stage primaryStage) {
 
         xmlFile = new FXMLLoader();
-        xmlFile.setLocation(App.class.getResource("Fxml/CompilePage.fxml"));
+        xmlFile.setLocation(App.class.getResource("Fxml/StartPage.fxml"));
         try {
             root = xmlFile.load();
         } catch (IOException e) {

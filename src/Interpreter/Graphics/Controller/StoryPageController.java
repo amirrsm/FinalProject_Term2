@@ -1,21 +1,139 @@
 package Interpreter.Graphics.Controller;
 
+import Interpreter.Graphics.App;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StoryPageController implements Initializable {
-    public Button Stage1;
-    public Button Stage2;
-    public Button Stage4;
-    public Button Stage3;
-    public Button Stage5;
-    public Button Stage6;
-    public Button Stage7;
-    public Button Stage8;
-    public Button Stage9;
+    public Button stage1;
+    public Button stage2;
+    public Button stage3;
+    public Button stage4;
+    public Button stage5;
+    public Button stage6;
+    public Button stage7;
+    public Button stage8;
+    public Button stage9;
+    public Button back;
+
+    public void onStoryButtons(ActionEvent event) throws IOException {
+        Stage stage;
+        Parent root;
+
+        if (event.getSource().equals(stage1)) {
+
+        }
+        if (event.getSource().equals(stage2)) {
+
+        }
+        if (event.getSource().equals(stage3)) {
+
+        }
+        if (event.getSource().equals(stage4)) {
+
+        }
+        if (event.getSource().equals(stage5)) {
+
+        }
+        if (event.getSource().equals(stage6)) {
+
+        }
+        if (event.getSource().equals(stage7)) {
+
+        }
+        if (event.getSource().equals(stage8)) {
+
+        }
+        if (event.getSource().equals(stage9)) {
+
+        }
+        if (event.getSource().equals(back)) {
+            stage = (Stage) back.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(App.class.getResource("Fxml/StartPage.fxml"));
+            root = fxmlLoader.load();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
+
+    public void mouseEnter(MouseEvent event) {
+        if (event.getSource().equals(stage1)) {
+            stage1.setStyle("-fx-opacity: 0.9");
+        }
+        if (event.getSource().equals(stage2)) {
+            stage2.setStyle("-fx-opacity: 0.9");
+        }
+        if (event.getSource().equals(stage3)) {
+            stage3.setStyle("-fx-opacity: 0.9");
+        }
+        if (event.getSource().equals(stage4)) {
+            stage4.setStyle("-fx-opacity: 0.9");
+        }
+        if (event.getSource().equals(stage5)) {
+            stage5.setStyle("-fx-opacity: 0.9");
+        }
+        if (event.getSource().equals(stage6)) {
+            stage6.setStyle("-fx-opacity: 0.9");
+        }
+        if (event.getSource().equals(stage7)) {
+            stage7.setStyle("-fx-opacity: 0.9");
+        }
+        if (event.getSource().equals(stage8)) {
+            stage8.setStyle("-fx-opacity: 0.9");
+        }
+        if (event.getSource().equals(stage9)) {
+            stage9.setStyle("-fx-opacity: 0.9");
+        }
+        if (event.getSource().equals(back)) {
+            back.setStyle("-fx-opacity: 0.9");
+        }
+    }
+
+    public void mouseExit(MouseEvent event) {
+        if (event.getSource().equals(stage1)) {
+            stage1.setStyle("-fx-opacity: 0.65");
+        }
+        if (event.getSource().equals(stage2)) {
+            stage2.setStyle("-fx-opacity: 0.65");
+        }
+        if (event.getSource().equals(stage3)) {
+            stage3.setStyle("-fx-opacity: 0.65");
+        }
+        if (event.getSource().equals(stage4)) {
+            stage4.setStyle("-fx-opacity: 0.65");
+        }
+        if (event.getSource().equals(stage5)) {
+            stage5.setStyle("-fx-opacity: 0.65");
+        }
+        if (event.getSource().equals(stage6)) {
+            stage6.setStyle("-fx-opacity: 0.65");
+        }
+        if (event.getSource().equals(stage7)) {
+            stage7.setStyle("-fx-opacity: 0.65");
+        }
+        if (event.getSource().equals(stage8)) {
+            stage8.setStyle("-fx-opacity: 0.65");
+        }
+        if (event.getSource().equals(stage9)) {
+            stage9.setStyle("-fx-opacity: 0.65");
+        }
+        if (event.getSource().equals(back)) {
+            back.setStyle("-fx-opacity: 0.55");
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
