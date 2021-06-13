@@ -17,7 +17,7 @@ public class Reader {
         try {
             BufferedReader reader;
             reader = new BufferedReader(new StringReader(Data));
-
+            System.setOut(new PrintStream("compile.txt"));
             Calculations calculate;
             while (true) {
                 String line = reader.readLine();

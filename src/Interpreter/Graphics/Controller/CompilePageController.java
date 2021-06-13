@@ -84,11 +84,25 @@ public class CompilePageController implements Initializable {
             }
         }
         if (event.getSource().equals(compileFile)) {
+            BufferedReader reader = null;
             try {
                 Reader.read(codingBox.getText());
+                reader = new BufferedReader(new FileReader("compile.txt"));
+                StringBuilder lines = new StringBuilder();
+                while (true) {
+                    String line = reader.readLine();
+                    if (line == null)
+                        break;
+                    else {
+                        lines.append(line);
+                        lines.append("\n");
+                    }
+                }
+                terminalBox.setText(lines.toString());
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
         }
         if (event.getSource().equals(back)) {
             Stage stage;
