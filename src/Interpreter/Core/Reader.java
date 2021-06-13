@@ -13,11 +13,12 @@ public class Reader {
      * @param Data the direction of the file
      * @throws Exception in case of problems which caused by for statement
      */
-    public static void read(String Data) throws Exception {
+    public static PrintStream read(String Data) throws Exception {
         try {
             BufferedReader reader;
             reader = new BufferedReader(new StringReader(Data));
-            System.setOut(new PrintStream("compile.txt"));
+            PrintStream stream = new PrintStream("compile.txt");
+            System.setOut(stream);
             Calculations calculate;
             while (true) {
                 String line = reader.readLine();
@@ -75,11 +76,11 @@ public class Reader {
                     loop.forOperator(builder.toString());
                 }
             }
-
+            return stream;
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        return null;
     }
 
     static class InvalidForException extends Exception {

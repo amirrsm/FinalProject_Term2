@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ResourceBundle;
 
 public class CompilePageController implements Initializable {
@@ -86,7 +88,7 @@ public class CompilePageController implements Initializable {
         if (event.getSource().equals(compileFile)) {
             BufferedReader reader = null;
             try {
-                Reader.read(codingBox.getText());
+                PrintStream stream = Reader.read(codingBox.getText());
                 reader = new BufferedReader(new FileReader("compile.txt"));
                 StringBuilder lines = new StringBuilder();
                 while (true) {
@@ -98,10 +100,13 @@ public class CompilePageController implements Initializable {
                         lines.append("\n");
                     }
                 }
+                reader.close();
+                stream.close();
                 terminalBox.setText(lines.toString());
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            Files.delete(Path.of("compile.txt"));
 
         }
         if (event.getSource().equals(back)) {
