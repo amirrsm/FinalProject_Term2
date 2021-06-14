@@ -25,37 +25,53 @@ public class StoryPageController implements Initializable {
     public Button stage8;
     public Button stage9;
     public Button back;
+    public static int stageSelected = 0;
 
     public void onStoryButtons(ActionEvent event) throws IOException {
         Stage stage;
         Parent root;
 
-        if (event.getSource().equals(stage1)) {
+        if (!event.getSource().equals(back)) {
+            if (event.getSource().equals(stage1)) {
+                stageSelected = 1;
+                System.out.println(stageSelected);
+            }
+            if (event.getSource().equals(stage2)) {
+                stageSelected = 2;
+                System.out.println(stageSelected);
+            }
+            if (event.getSource().equals(stage3)) {
+                stageSelected = 3;
+                System.out.println(stageSelected);
+            }
+            if (event.getSource().equals(stage4)) {
+                stageSelected = 4;
+                System.out.println(stageSelected);
+            }
+            if (event.getSource().equals(stage5)) {
+                stageSelected = 5;
+                System.out.println(stageSelected);
+            }
+            if (event.getSource().equals(stage6)) {
+                stageSelected = 6;
+            }
+            if (event.getSource().equals(stage7)) {
+                stageSelected = 7;
+            }
+            if (event.getSource().equals(stage8)) {
+                stageSelected = 8;
+            }
+            if (event.getSource().equals(stage9)) {
+                stageSelected = 9;
+            }
+            stage = (Stage) back.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(App.class.getResource("Fxml/QuestionPage.fxml"));
+            root = fxmlLoader.load();
 
-        }
-        if (event.getSource().equals(stage2)) {
-
-        }
-        if (event.getSource().equals(stage3)) {
-
-        }
-        if (event.getSource().equals(stage4)) {
-
-        }
-        if (event.getSource().equals(stage5)) {
-
-        }
-        if (event.getSource().equals(stage6)) {
-
-        }
-        if (event.getSource().equals(stage7)) {
-
-        }
-        if (event.getSource().equals(stage8)) {
-
-        }
-        if (event.getSource().equals(stage9)) {
-
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
         if (event.getSource().equals(back)) {
             stage = (Stage) back.getScene().getWindow();

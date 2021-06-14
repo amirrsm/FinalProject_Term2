@@ -24,12 +24,15 @@ import java.util.ResourceBundle;
 
 public class QuestionPageController implements Initializable {
     public TextArea codingBox;
-    public ImageView QuestionBox;
+    public ImageView questionBox;
     public TextArea terminalBox;
     public Button run;
     public Button back;
+    public boolean setQuiz = false;
 
-    public void onRunButton(ActionEvent event) throws IOException {
+    public void onQuestionButtons(ActionEvent event) throws IOException {
+        Stage stage;
+        Parent root;
         if (event.getSource().equals(run)) {
             BufferedReader reader = null;
             try {
@@ -54,11 +57,10 @@ public class QuestionPageController implements Initializable {
             Files.delete(Path.of("compile.txt"));
         }
         if (event.getSource().equals(back)) {
-            Stage stage;
-            Parent root;
+
             stage = (Stage) back.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("Fxml/StartPage.fxml"));
+            fxmlLoader.setLocation(App.class.getResource("Fxml/StoryPage.fxml"));
             root = fxmlLoader.load();
 
             Scene scene = new Scene(root);
@@ -77,6 +79,49 @@ public class QuestionPageController implements Initializable {
     public void mouseExit(MouseEvent event) {
         if (event.getSource().equals(back)) {
             back.setStyle("-fx-opacity: 0.55");
+        }
+    }
+
+    public void setQuestionBox() {
+        if (!setQuiz) {
+            switch (StoryPageController.stageSelected) {
+                case 1:
+                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q1.png')");
+                    setQuiz = true;
+                    break;
+                case 2:
+                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q2.png')");
+                    setQuiz = true;
+                    break;
+                case 3:
+                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q3.png')");
+                    setQuiz = true;
+                    break;
+                case 4:
+                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q4.png')");
+                    setQuiz = true;
+                    break;
+                case 5:
+                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q5.png')");
+                    setQuiz = true;
+                    break;
+                case 6:
+                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q6.png')");
+                    setQuiz = true;
+                    break;
+                case 7:
+                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q7.png')");
+                    setQuiz = true;
+                    break;
+                case 8:
+                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q8.png')");
+                    setQuiz = true;
+                    break;
+                case 9:
+                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q9.png')");
+                    setQuiz = true;
+                    break;
+            }
         }
     }
 
