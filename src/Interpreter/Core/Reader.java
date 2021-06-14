@@ -33,28 +33,28 @@ public class Reader {
                     calculate = new Sum();
                     try {
                         calculate.statement(line, intData, floatData);
-                    } catch (NumberFormatException e){
+                    } catch (NumberFormatException e) {
                         System.out.println(e.getMessage());
                     }
                 } else if (line.matches(Patterns.subRegex1) || line.matches(Patterns.subRegex2) || line.matches(Patterns.subRegex3) || line.matches(Patterns.subRegex4)) {
                     calculate = new Submission();
                     try {
                         calculate.statement(line, intData, floatData);
-                    } catch (NumberFormatException e){
+                    } catch (NumberFormatException e) {
                         System.out.println(e.getMessage());
                     }
                 } else if (line.matches(Patterns.mulRegex1) || line.matches(Patterns.mulRegex2) || line.matches(Patterns.mulRegex3) || line.matches(Patterns.mulRegex4)) {
                     calculate = new Multiplication();
                     try {
                         calculate.statement(line, intData, floatData);
-                    } catch (NumberFormatException e){
+                    } catch (NumberFormatException e) {
                         System.out.println(e.getMessage());
                     }
                 } else if (line.matches(Patterns.divRegex1) || line.matches(Patterns.divRegex2) || line.matches(Patterns.divRegex3) || line.matches(Patterns.divRegex4)) {
                     calculate = new Division();
                     try {
                         calculate.statement(line, intData, floatData);
-                    } catch (NumberFormatException e){
+                    } catch (NumberFormatException e) {
                         System.out.println(e.getMessage());
                     }
                 } else if (line.matches(Patterns.printRegex)) {
