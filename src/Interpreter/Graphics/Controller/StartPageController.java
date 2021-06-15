@@ -61,7 +61,7 @@ public class StartPageController implements Initializable {
     }
 
     @FXML
-    public void mouseEnter(MouseEvent event){
+    public void mouseEnter(MouseEvent event) {
         if (event.getSource().equals(compile)) {
             compile.setStyle("-fx-opacity: 0.9");
         }
@@ -77,7 +77,7 @@ public class StartPageController implements Initializable {
     }
 
     @FXML
-    public void mouseExit(MouseEvent event){
+    public void mouseExit(MouseEvent event) {
         if (event.getSource().equals(compile)) {
             compile.setStyle("-fx-opacity: 0.65");
         }

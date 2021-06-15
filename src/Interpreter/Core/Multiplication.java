@@ -28,9 +28,9 @@ public class Multiplication extends Calculations {
                 keys[i++] = builder.toString();
                 if (keys[i - 1].matches(Patterns.number))
                     results[i - 1] = keys[i - 1];
-                else if(intData.containsKey(keys[i - 1]))
+                else if (intData.containsKey(keys[i - 1]))
                     results[i - 1] = String.valueOf(intData.get(keys[i - 1]));
-                else if(floatData.containsKey(keys[i - 1]))
+                else if (floatData.containsKey(keys[i - 1]))
                     results[i - 1] = String.valueOf(floatData.get(keys[i - 1]));
                 builder.delete(0, builder.length());
             } else
@@ -39,12 +39,12 @@ public class Multiplication extends Calculations {
         if (intData.containsKey(keys[0])) {
             String result1 = results[1].split("[.]")[0];
             String result2 = results[2].split("[.]")[0];
-            if(result1.length() > 8 || result2.length() > 8)
+            if (result1.length() > 8 || result2.length() > 8)
                 throw new NumberFormatException("integer is too long!");
             intData.put(keys[0], Integer.parseInt(result1) * Integer.parseInt(result2));
             return intData.get(keys[0]);
         } else if (floatData.containsKey(keys[0])) {
-            floatData.put(keys[0],(double) java.lang.Float.parseFloat(results[1]) * java.lang.Float.parseFloat(results[2]));
+            floatData.put(keys[0], (double) java.lang.Float.parseFloat(results[1]) * java.lang.Float.parseFloat(results[2]));
             return floatData.get(keys[0]);
         }
         return 0;

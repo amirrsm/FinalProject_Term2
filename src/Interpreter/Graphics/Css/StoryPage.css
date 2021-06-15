@@ -57,7 +57,7 @@
     -fx-background-radius: 60;
 }
 
-.Back{
+.Back {
     -fx-background-image: url('file:src/Interpreter/Graphics/Pictures/Back.png');
     -fx-background-size: 100% 100%;
     -fx-background-radius: 30;

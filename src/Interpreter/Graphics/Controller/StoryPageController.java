@@ -34,23 +34,18 @@ public class StoryPageController implements Initializable {
         if (!event.getSource().equals(back)) {
             if (event.getSource().equals(stage1)) {
                 stageSelected = 1;
-                System.out.println(stageSelected);
             }
             if (event.getSource().equals(stage2)) {
                 stageSelected = 2;
-                System.out.println(stageSelected);
             }
             if (event.getSource().equals(stage3)) {
                 stageSelected = 3;
-                System.out.println(stageSelected);
             }
             if (event.getSource().equals(stage4)) {
                 stageSelected = 4;
-                System.out.println(stageSelected);
             }
             if (event.getSource().equals(stage5)) {
                 stageSelected = 5;
-                System.out.println(stageSelected);
             }
             if (event.getSource().equals(stage6)) {
                 stageSelected = 6;

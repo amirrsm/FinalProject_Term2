@@ -1,7 +1,5 @@
 package Interpreter.Core;
 
-import Interpreter.Graphics.Controller.CompilePageController;
-
 public class Print {
     public int print(String line, Int intData, Float floatData) {
         line = line.trim();
