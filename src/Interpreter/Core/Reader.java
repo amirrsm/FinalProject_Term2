@@ -6,6 +6,7 @@ public class Reader {
 
     static Int intData = new Int();
     static Float floatData = new Float();
+    public static StringBuilder stream = new StringBuilder();
 
     /**
      * reads the file text and call the related classes
@@ -13,12 +14,11 @@ public class Reader {
      * @param Data the direction of the file
      * @throws Exception in case of problems which caused by for statement
      */
-    public static PrintStream read(String Data) throws Exception {
+    public static StringBuilder read(String Data) throws Exception {
         try {
             BufferedReader reader;
             reader = new BufferedReader(new StringReader(Data));
-            PrintStream stream = new PrintStream("compile.txt");
-            System.setOut(stream);
+
             Calculations calculate;
             while (true) {
                 String line = reader.readLine();
@@ -72,7 +72,22 @@ public class Reader {
                         line = line.trim();
                         builder.append(line).append("\n");
                     }
+                    if (builder.toString().contains("for")) {
+                        BufferedReader setEndFor = new BufferedReader(new StringReader(builder.toString()));
+                        int countInnerFor = 0;
+                        while (true) {
+                            String inFor = setEndFor.readLine();
+                            if (inFor == null)
+                                break;
+                            if (inFor.matches(Patterns.forStartingRegex))
+                                countInnerFor++;
+                        }
 
+                        for (int i = 1; i <= countInnerFor; i++) {
+                            builder.append("end for");
+                            builder.append("\n");
+                        }
+                    }
                     loop.forOperator(builder.toString());
                 }
             }

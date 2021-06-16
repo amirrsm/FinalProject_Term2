@@ -34,27 +34,16 @@ public class QuestionPageController implements Initializable {
         Stage stage;
         Parent root;
         if (event.getSource().equals(run)) {
-            BufferedReader reader = null;
+            StringBuilder lines = null;
             try {
-                PrintStream stream = Reader.read(codingBox.getText());
-                reader = new BufferedReader(new FileReader("compile.txt"));
-                StringBuilder lines = new StringBuilder();
-                while (true) {
-                    String line = reader.readLine();
-                    if (line == null)
-                        break;
-                    else {
-                        lines.append(line);
-                        lines.append("\n");
-                    }
-                }
-                reader.close();
-                stream.close();
-                terminalBox.setText(lines.toString());
+                lines = Reader.read(codingBox.getText());
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            Files.delete(Path.of("compile.txt"));
+            if (lines != null) {
+                terminalBox.setText(lines.toString());
+                Reader.stream.delete(0, Reader.stream.length());
+            }
         }
         if (event.getSource().equals(back)) {
 

@@ -9,10 +9,12 @@ public class Print {
             return output.length();
         } else {
             if (intData.containsKey(output)) {
-                System.out.println(intData.get(output));
+                Reader.stream.append(intData.get(output));
+                Reader.stream.append("\n");
                 return intData.get(output).toString().length();
             } else if (floatData.containsKey(output)) {
-                System.out.println(floatData.get(output));
+                Reader.stream.append(floatData.get(output));
+                Reader.stream.append("\n");
                 return floatData.get(output).toString().length();
             } else {
                 System.out.println("not found!");
