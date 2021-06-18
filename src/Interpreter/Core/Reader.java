@@ -62,32 +62,38 @@ public class Reader {
                     int result = printer.print(line, intData, floatData);
                 } else if (line.matches(Patterns.forStartingRegex)) {
                     For loop = new For(line);
+                    int countInnerFor = 1;
                     StringBuilder builder = new StringBuilder();
-                    while (!line.matches(Patterns.forEndingRegex)) {
+                    while (!line.matches(Patterns.forEndingRegex) || countInnerFor != 0) {
                         line = reader.readLine();
                         if (line == null)
                             throw new InvalidForException("for statement was invalid");
-                        if (line.contains("end"))
+                        if (line.matches(Patterns.forStartingRegex)) {
+                            countInnerFor++;
+                        }
+                        if (line.matches(Patterns.forEndingRegex))
+                            countInnerFor--;
+                        else if (line.matches(Patterns.forEndingRegex) && countInnerFor == 0)
                             break;
                         line = line.trim();
                         builder.append(line).append("\n");
                     }
-                    if (builder.toString().contains("for")) {
+/*                    if (builder.toString().contains("for")) {
                         BufferedReader setEndFor = new BufferedReader(new StringReader(builder.toString()));
-                        int countInnerFor = 0;
+                        int countInnerFor1 = 0;
                         while (true) {
                             String inFor = setEndFor.readLine();
                             if (inFor == null)
                                 break;
                             if (inFor.matches(Patterns.forStartingRegex))
-                                countInnerFor++;
+                                countInnerFor1++;
                         }
 
-                        for (int i = 1; i <= countInnerFor; i++) {
+                        for (int i = 1; i <= countInnerFor1; i++) {
                             builder.append("end for");
                             builder.append("\n");
                         }
-                    }
+                    }*/
                     loop.forOperator(builder.toString());
                 }
             }
