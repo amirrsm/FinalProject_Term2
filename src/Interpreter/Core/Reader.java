@@ -78,22 +78,6 @@ public class Reader {
                         line = line.trim();
                         builder.append(line).append("\n");
                     }
-/*                    if (builder.toString().contains("for")) {
-                        BufferedReader setEndFor = new BufferedReader(new StringReader(builder.toString()));
-                        int countInnerFor1 = 0;
-                        while (true) {
-                            String inFor = setEndFor.readLine();
-                            if (inFor == null)
-                                break;
-                            if (inFor.matches(Patterns.forStartingRegex))
-                                countInnerFor1++;
-                        }
-
-                        for (int i = 1; i <= countInnerFor1; i++) {
-                            builder.append("end for");
-                            builder.append("\n");
-                        }
-                    }*/
                     loop.forOperator(builder.toString());
                 }
             }
