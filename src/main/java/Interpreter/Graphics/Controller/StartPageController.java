@@ -22,7 +22,7 @@ public class StartPageController implements Initializable {
     @FXML
     public Button story;
     @FXML
-    public Button setting;
+    public Button online;
     @FXML
     public Button exit;
 
@@ -52,8 +52,15 @@ public class StartPageController implements Initializable {
             stage.show();
 
         }
-        if (event.getSource().equals(setting)) {
+        if (event.getSource().equals(online)) {
+            stage = (Stage) story.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(App.class.getResource("Fxml/OnlinePage.fxml"));
+            root = fxmlLoader.load();
 
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
         if (event.getSource().equals(exit)) {
             System.exit(0);
@@ -68,8 +75,8 @@ public class StartPageController implements Initializable {
         if (event.getSource().equals(story)) {
             story.setStyle("-fx-opacity: 0.9");
         }
-        if (event.getSource().equals(setting)) {
-            setting.setStyle("-fx-opacity: 0.9");
+        if (event.getSource().equals(online)) {
+            online.setStyle("-fx-opacity: 0.9");
         }
         if (event.getSource().equals(exit)) {
             exit.setStyle("-fx-opacity: 0.9");
@@ -84,8 +91,8 @@ public class StartPageController implements Initializable {
         if (event.getSource().equals(story)) {
             story.setStyle("-fx-opacity: 0.65");
         }
-        if (event.getSource().equals(setting)) {
-            setting.setStyle("-fx-opacity: 0.65");
+        if (event.getSource().equals(online)) {
+            online.setStyle("-fx-opacity: 0.65");
         }
         if (event.getSource().equals(exit)) {
             exit.setStyle("-fx-opacity: 0.65");

@@ -4,27 +4,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.StartPageController">
+<BorderPane prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.StartPageController">
     <center>
-        <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" styleClass="MainBackground"
-              stylesheets="@../Css/StartPage.css" BorderPane.alignment="CENTER">
+        <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" styleClass="MainBackground" stylesheets="@../Css/StartPage.css" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="compile" mnemonicParsing="false" onAction="#onStartButtons" onMouseEntered="#mouseEnter"
-                        onMouseExited="#mouseExit" opacity="0.65" prefHeight="100.0" prefWidth="300.0"
-                        styleClass="CompileButton" stylesheets="@../Css/StartPage.css"/>
-                <Button fx:id="story" mnemonicParsing="false" onAction="#onStartButtons" onMouseEntered="#mouseEnter"
-                        onMouseExited="#mouseExit" opacity="0.65" prefHeight="100.0" prefWidth="300.0"
-                        styleClass="StoryButton" stylesheets="@../Css/StartPage.css"/>
-                <Button fx:id="setting" mnemonicParsing="false" onAction="#onStartButtons" onMouseEntered="#mouseEnter"
-                        onMouseExited="#mouseExit" opacity="0.65" prefHeight="100.0" prefWidth="300.0"
-                        styleClass="SettingButton" stylesheets="@../Css/StartPage.css"/>
-                <Button fx:id="exit" mnemonicParsing="false" onAction="#onStartButtons" onMouseEntered="#mouseEnter"
-                        onMouseExited="#mouseExit" opacity="0.65" prefHeight="100.0" prefWidth="300.0"
-                        styleClass="ExitButton" stylesheets="@../Css/StartPage.css"/>
+                <Button fx:id="compile" mnemonicParsing="false" onAction="#onStartButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.65" prefHeight="100.0" prefWidth="300.0" styleClass="CompileButton" stylesheets="@../Css/StartPage.css" />
+                <Button fx:id="story" mnemonicParsing="false" onAction="#onStartButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.65" prefHeight="100.0" prefWidth="300.0" styleClass="StoryButton" stylesheets="@../Css/StartPage.css" />
+                <Button fx:id="online" mnemonicParsing="false" onAction="#onStartButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.65" prefHeight="100.0" prefWidth="300.0" styleClass="SettingButton" stylesheets="@../Css/StartPage.css" />
+                <Button fx:id="exit" mnemonicParsing="false" onAction="#onStartButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.65" prefHeight="100.0" prefWidth="300.0" styleClass="ExitButton" stylesheets="@../Css/StartPage.css" />
             </children>
             <padding>
-                <Insets bottom="30.0"/>
+                <Insets bottom="30.0" />
             </padding>
         </VBox>
     </center>
