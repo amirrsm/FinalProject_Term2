@@ -15,7 +15,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+
+import static Interpreter.Database.ProjectDB.connection;
 
 public class QuestionPageController implements Initializable {
     public TextArea codingBox;
@@ -25,7 +30,7 @@ public class QuestionPageController implements Initializable {
     public Button back;
     public boolean setQuiz = false;
 
-    public void onQuestionButtons(ActionEvent event) throws IOException {
+    public void onQuestionButtons(ActionEvent event) throws IOException, SQLException {
         Stage stage;
         Parent root;
         if (event.getSource().equals(run)) {
@@ -41,6 +46,10 @@ public class QuestionPageController implements Initializable {
             }
         }
         if (event.getSource().equals(back)) {
+
+            Statement statement = connection.createStatement();
+            String sql = "UPDATE players SET on_game = '0' WHERE on_game = '1' ";
+            statement.executeUpdate(sql);
 
             stage = (Stage) back.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
