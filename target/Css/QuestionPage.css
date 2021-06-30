@@ -1,5 +1,5 @@
 .MainBG {
-    -fx-background-image: url('file:src/Interpreter/Graphics/Pictures/QuestionBG.png');
+    -fx-background-image: url('file:src/main/java/Interpreter/Graphics/Pictures/QuestionBG.png');
     -fx-background-size: 100% 100%;
 }
 
@@ -12,13 +12,13 @@
 }
 
 .Run {
-    -fx-background-image: url('file:src/Interpreter/Graphics/Pictures/Run.png');
+    -fx-background-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Run.png');
     -fx-background-size: 100% 100%;
     -fx-background-radius: 30;
 }
 
 .Back {
-    -fx-background-image: url('file:src/Interpreter/Graphics/Pictures/Back.png');
+    -fx-background-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Back.png');
     -fx-background-size: 100% 100%;
     -fx-background-radius: 30;
 }
