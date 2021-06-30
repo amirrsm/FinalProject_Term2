@@ -11,11 +11,9 @@ public class ProjectDB {
 
     public static void main(String[] args) throws SQLException {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setURL(
-                "jdbc:mysql://https://amirrsm.000webhostapp.com/localhost:3306/id17150973_finalprojectdb"
-        );
-        dataSource.setUser("id17150973_root");
-        dataSource.setPassword("Amirrez@1302");
+        dataSource.setURL("jdbc:mysql://localhost:3306/fpdb");
+        dataSource.setUser("root");
+        dataSource.setPassword("7424468080");
 
         Connection connection = dataSource.getConnection();
         System.out.println("Connected");
