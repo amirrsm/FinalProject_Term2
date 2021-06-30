@@ -100,7 +100,7 @@ public class CompilePageController implements Initializable {
             Parent root;
             stage = (Stage) back.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("Fxml/StartPage.fxml"));
+            fxmlLoader.setLocation(App.class.getResource("/StartPage.fxml"));
             root = fxmlLoader.load();
 
             Scene scene = new Scene(root);

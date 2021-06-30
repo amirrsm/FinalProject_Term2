@@ -34,7 +34,7 @@ public class StartPageController implements Initializable {
         if (event.getSource().equals(compile)) {
             stage = (Stage) compile.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("Fxml/CompilePage.fxml"));
+            fxmlLoader.setLocation(App.class.getResource("/CompilePage.fxml"));
             root = fxmlLoader.load();
 
             Scene scene = new Scene(root);
@@ -44,7 +44,7 @@ public class StartPageController implements Initializable {
         if (event.getSource().equals(story)) {
             stage = (Stage) story.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("Fxml/StoryPage.fxml"));
+            fxmlLoader.setLocation(App.class.getResource("/StoryPage.fxml"));
             root = fxmlLoader.load();
 
             Scene scene = new Scene(root);
@@ -55,7 +55,7 @@ public class StartPageController implements Initializable {
         if (event.getSource().equals(online)) {
             stage = (Stage) story.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("Fxml/OnlinePage.fxml"));
+            fxmlLoader.setLocation(App.class.getResource("/OnlinePage.fxml"));
             root = fxmlLoader.load();
 
             Scene scene = new Scene(root);

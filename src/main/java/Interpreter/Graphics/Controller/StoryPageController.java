@@ -61,7 +61,7 @@ public class StoryPageController implements Initializable {
             }
             stage = (Stage) back.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("Fxml/QuestionPage.fxml"));
+            fxmlLoader.setLocation(App.class.getResource("/QuestionPage.fxml"));
             root = fxmlLoader.load();
 
             Scene scene = new Scene(root);
@@ -71,7 +71,7 @@ public class StoryPageController implements Initializable {
         if (event.getSource().equals(back)) {
             stage = (Stage) back.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("Fxml/StartPage.fxml"));
+            fxmlLoader.setLocation(App.class.getResource("/StartPage.fxml"));
             root = fxmlLoader.load();
 
             Scene scene = new Scene(root);

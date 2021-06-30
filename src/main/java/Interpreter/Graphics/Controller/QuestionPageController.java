@@ -44,7 +44,7 @@ public class QuestionPageController implements Initializable {
 
             stage = (Stage) back.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("Fxml/StoryPage.fxml"));
+            fxmlLoader.setLocation(App.class.getResource("/StoryPage.fxml"));
             root = fxmlLoader.load();
 
             Scene scene = new Scene(root);
@@ -70,39 +70,39 @@ public class QuestionPageController implements Initializable {
         if (!setQuiz) {
             switch (StoryPageController.stageSelected) {
                 case 1:
-                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q1.png')");
+                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q1.png')");
                     setQuiz = true;
                     break;
                 case 2:
-                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q2.png')");
+                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q2.png')");
                     setQuiz = true;
                     break;
                 case 3:
-                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q3.png')");
+                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q3.png')");
                     setQuiz = true;
                     break;
                 case 4:
-                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q4.png')");
+                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q4.png')");
                     setQuiz = true;
                     break;
                 case 5:
-                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q5.png')");
+                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q5.png')");
                     setQuiz = true;
                     break;
                 case 6:
-                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q6.png')");
+                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q6.png')");
                     setQuiz = true;
                     break;
                 case 7:
-                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q7.png')");
+                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q7.png')");
                     setQuiz = true;
                     break;
                 case 8:
-                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q8.png')");
+                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q8.png')");
                     setQuiz = true;
                     break;
                 case 9:
-                    questionBox.setStyle("-fx-image: url('file:src/Interpreter/Graphics/Pictures/Questions/Q9.png')");
+                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q9.png')");
                     setQuiz = true;
                     break;
             }
