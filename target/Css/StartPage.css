@@ -1,5 +1,5 @@
 .MainBackground {
-    -fx-background-image: url('file:src/main/java/Interpreter/Graphics/Pictures/StartPage/menu.png');
+    -fx-background-image: url('file:src/main/java/Interpreter/Graphics/Pictures/menu.png');
     -fx-background-size: 100% 100%;
 }
 
