@@ -25,7 +25,7 @@ public class StoryPageController implements Initializable {
     public Button stage8;
     public Button stage9;
     public Button back;
-    public static int stageSelected = 0;
+    public static int stageSelected = 5;
 
     public void onStoryButtons(ActionEvent event) throws IOException {
         Stage stage;

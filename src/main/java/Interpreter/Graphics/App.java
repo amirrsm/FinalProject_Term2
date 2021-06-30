@@ -1,5 +1,6 @@
 package Interpreter.Graphics;
 
+import Interpreter.Database.ProjectDB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -36,6 +37,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        new ProjectDB();
         launch(args);
     }
 }

@@ -73,7 +73,7 @@ public class Reader {
                         }
                         if (line.matches(Patterns.forEndingRegex))
                             countInnerFor--;
-                        else if (line.matches(Patterns.forEndingRegex) && countInnerFor == 0)
+                        if (line.matches(Patterns.forEndingRegex) && countInnerFor == 0)
                             break;
                         line = line.trim();
                         builder.append(line).append("\n");

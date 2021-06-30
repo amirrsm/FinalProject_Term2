@@ -9,15 +9,20 @@ import java.sql.Statement;
 
 public class ProjectDB {
 
-    public static void main(String[] args) throws SQLException {
-        MysqlDataSource dataSource = new MysqlDataSource();
+    public static MysqlDataSource dataSource;
+    public static Connection connection = null;
+    public ProjectDB(){
+        dataSource = new MysqlDataSource();
         dataSource.setURL("jdbc:mysql://localhost:3306/fpdb");
         dataSource.setUser("root");
         dataSource.setPassword("7424468080");
 
-        Connection connection = dataSource.getConnection();
-        System.out.println("Connected");
-        connection.close();
-
+        connection = null;
+        try {
+            connection = dataSource.getConnection();
+            System.out.println("Connected");
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
     }
 }
