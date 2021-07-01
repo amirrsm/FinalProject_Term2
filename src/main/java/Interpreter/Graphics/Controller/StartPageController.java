@@ -55,7 +55,7 @@ public class StartPageController implements Initializable {
         if (event.getSource().equals(online)) {
             stage = (Stage) story.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("/OnlinePage.fxml"));
+            fxmlLoader.setLocation(App.class.getResource("/LoginPage.fxml"));
             root = fxmlLoader.load();
 
             Scene scene = new Scene(root);

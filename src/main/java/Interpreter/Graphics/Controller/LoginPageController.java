@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class OnlinePageController implements Initializable {
+public class LoginPageController implements Initializable {
     public TextField username;
     public TextField password;
     public Button login;

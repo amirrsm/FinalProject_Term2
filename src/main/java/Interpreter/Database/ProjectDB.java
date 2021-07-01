@@ -13,9 +13,9 @@ public class ProjectDB {
     public static Connection connection = null;
     public ProjectDB(){
         dataSource = new MysqlDataSource();
-        dataSource.setURL("jdbc:mysql://localhost:3306/fpdb");
-        dataSource.setUser("root");
-        dataSource.setPassword("7424468080");
+        dataSource.setURL("jdbc:mysql://https://sajjad8080.000webhostapp.com/localhost:3306/id16404352_project");
+        dataSource.setUser("id16404352_sajjaddb");
+        dataSource.setPassword("@0G##<g%&3gy1wlT");
 
         connection = null;
         try {

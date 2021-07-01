@@ -11,8 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -28,6 +32,7 @@ public class QuestionPageController implements Initializable {
     public TextArea terminalBox;
     public Button run;
     public Button back;
+    public MediaView mediaView;
     public boolean setQuiz = false;
 
     public void onQuestionButtons(ActionEvent event) throws IOException, SQLException {
@@ -43,6 +48,44 @@ public class QuestionPageController implements Initializable {
             if (lines != null) {
                 terminalBox.setText(lines.toString());
                 Reader.stream.delete(0, Reader.stream.length());
+            }
+
+            switch (StoryPageController.stageSelected) {
+
+                case 1:
+                    if (terminalBox.getText().equals("1\n")) {
+                        String path = "src/main/java/Interpreter/Graphics/Pictures/WinClip.mp4";
+                        Media media = new Media(new File(path).toURI().toString());
+                        MediaPlayer mediaPlayer = new MediaPlayer(media);
+                        mediaView.setMediaPlayer(mediaPlayer);
+                        mediaView.setVisible(true);
+                        mediaPlayer.setAutoPlay(true);
+                    } else {
+                        String path = "src/main/java/Interpreter/Graphics/Pictures/WinClip.mp4";
+                        Media media = new Media(new File(path).toURI().toString());
+                        MediaPlayer mediaPlayer = new MediaPlayer(media);
+                        mediaView.setMediaPlayer(mediaPlayer);
+                        mediaView.setVisible(true);
+                        mediaPlayer.setAutoPlay(true);
+                    }
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+
             }
         }
         if (event.getSource().equals(back)) {
