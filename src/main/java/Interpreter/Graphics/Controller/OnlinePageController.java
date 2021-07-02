@@ -17,7 +17,7 @@ public class OnlinePageController {
     public Button back;
 
     public void onOnlineButtons(ActionEvent event) throws IOException {
-        if (event.getSource().equals(register)){
+        if (event.getSource().equals(register)) {
             Stage stage;
             Parent root;
             stage = (Stage) back.getScene().getWindow();
@@ -28,7 +28,7 @@ public class OnlinePageController {
             stage.setScene(scene);
             stage.show();
         }
-        if (event.getSource().equals(login)){
+        if (event.getSource().equals(login)) {
             Stage stage;
             Parent root;
             stage = (Stage) back.getScene().getWindow();
@@ -39,7 +39,7 @@ public class OnlinePageController {
             stage.setScene(scene);
             stage.show();
         }
-        if (event.getSource().equals(back)){
+        if (event.getSource().equals(back)) {
             Stage stage;
             Parent root;
             stage = (Stage) back.getScene().getWindow();
@@ -55,10 +55,10 @@ public class OnlinePageController {
 
 
     public void mouseEnter(MouseEvent event) {
-        if (event.getSource().equals(register)){
+        if (event.getSource().equals(register)) {
             register.setStyle("-fx-opacity: 1");
         }
-        if (event.getSource().equals(login)){
+        if (event.getSource().equals(login)) {
             login.setStyle("-fx-opacity: 1");
         }
         if (event.getSource().equals(back)) {
@@ -67,10 +67,10 @@ public class OnlinePageController {
     }
 
     public void mouseExit(MouseEvent event) {
-        if (event.getSource().equals(register)){
+        if (event.getSource().equals(register)) {
             register.setStyle("-fx-opacity: 0.7");
         }
-        if (event.getSource().equals(login)){
+        if (event.getSource().equals(login)) {
             login.setStyle("-fx-opacity: 0.7");
         }
         if (event.getSource().equals(back)) {

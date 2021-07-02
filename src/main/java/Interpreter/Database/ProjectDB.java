@@ -11,7 +11,8 @@ public class ProjectDB {
 
     public static MysqlDataSource dataSource;
     public static Connection connection = null;
-    public ProjectDB(){
+
+    public ProjectDB() {
         dataSource = new MysqlDataSource();
         dataSource.setURL("jdbc:mysql://https://sajjad8080.000webhostapp.com/localhost:3306/id16404352_project");
         dataSource.setUser("id16404352_sajjaddb");

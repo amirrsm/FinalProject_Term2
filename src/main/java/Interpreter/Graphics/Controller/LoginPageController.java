@@ -13,7 +13,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,43 +30,22 @@ public class LoginPageController implements Initializable {
     public Button login;
     public Button back;
 
-    public void onLoginButtons(ActionEvent event) throws IOException, SQLException {
+    public static int myID;
+    public static int opponentID;
+
+    public void onLoginButtons(ActionEvent event) throws IOException {
         if (event.getSource().equals(login)) {
+            if (canEnter(username.getText(), password.getText())) {
+                Stage stage;
+                Parent root;
+                stage = (Stage) login.getScene().getWindow();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(App.class.getResource("/WaitingPage.fxml"));
+                root = fxmlLoader.load();
 
-
-            String user = username.getText();
-            String pass = password.getText();
-
-            Statement statement = connection.createStatement();
-            String sql = String.format("SELECT * FROM players where username like '%s' and password like '%s'", user, pass);
-            ResultSet result = statement.executeQuery(sql);
-
-            while (result.next()) {
-                if (result.getString("on_game").equals("1")) {
-                    Stage stage;
-                    Parent root;
-                    stage = (Stage) back.getScene().getWindow();
-                    FXMLLoader fxmlLoader = new FXMLLoader();
-                    fxmlLoader.setLocation(App.class.getResource("/WaitingPage.fxml"));
-                    root = fxmlLoader.load();
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-
-                } else if (result.getString("on_game").equals("0")) {
-                    sql = String.format("UPDATE players SET on_game = '1' WHERE username like '%s' and password like '%s'", user, pass);
-                    statement.executeUpdate(sql);
-                    Stage stage;
-                    Parent root;
-                    stage = (Stage) back.getScene().getWindow();
-                    FXMLLoader fxmlLoader = new FXMLLoader();
-                    fxmlLoader.setLocation(App.class.getResource("/QuestionPage.fxml"));
-                    root = fxmlLoader.load();
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-                    break;
-                }
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
             }
         }
         if (event.getSource().equals(back)) {
@@ -90,6 +73,49 @@ public class LoginPageController implements Initializable {
             back.setStyle("-fx-opacity: 0.55");
         }
     }
+
+
+    boolean state = false;
+
+    private boolean canEnter(String username, String password) {
+        Thread thread = new Thread((Runnable) () -> {
+            String result = getContentOfUrlConnection("https://sajjad8080.000webhostapp.com/login.php?username=" + username + "&password=" + password);
+            if (!result.equals("not found!")) {
+                myID = Integer.parseInt(result);
+                state = true;
+            }
+        });
+        thread.start();
+        return state;
+    }
+
+    public static String getContentOfUrlConnection(String uri) {
+        try {
+            URL url = new URL(uri);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            InputStream inputStream = connection.getInputStream();
+            return InputStreamToString(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "error";
+    }
+
+    public static String InputStreamToString(InputStream inputStream) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder builder = new StringBuilder();
+        String line;
+        try {
+            while ((line = reader.readLine()) != null) {
+                builder.append(line);
+            }
+            return builder.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

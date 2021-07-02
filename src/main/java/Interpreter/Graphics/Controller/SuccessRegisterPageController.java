@@ -16,7 +16,7 @@ public class SuccessRegisterPageController {
     public Button back;
 
     public void onSuccessButtons(ActionEvent event) throws IOException {
-        if (event.getSource().equals(enter)){
+        if (event.getSource().equals(enter)) {
             Stage stage;
             Parent root;
             stage = (Stage) enter.getScene().getWindow();
@@ -27,7 +27,7 @@ public class SuccessRegisterPageController {
             stage.setScene(scene);
             stage.show();
         }
-        if (event.getSource().equals(back)){
+        if (event.getSource().equals(back)) {
             Stage stage;
             Parent root;
             stage = (Stage) back.getScene().getWindow();
