@@ -2,6 +2,7 @@ package Interpreter.Graphics.Controller;
 
 import Interpreter.Core.Reader;
 import Interpreter.Graphics.App;
+import Interpreter.Graphics.CorrectAnswers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,6 +24,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static Interpreter.Database.ProjectDB.connection;
 
@@ -51,22 +54,40 @@ public class QuestionPageController implements Initializable {
             }
 
             switch (StoryPageController.stageSelected) {
-
+                //todo find to how setVisible of media player false after end of clip.
                 case 1:
-                    if (terminalBox.getText().equals("1\n")) {
+                    if (terminalBox.getText().equals(CorrectAnswers.getAnswer(1))) {
                         String path = "src/main/java/Interpreter/Graphics/Pictures/WinClip.mp4";
                         Media media = new Media(new File(path).toURI().toString());
                         MediaPlayer mediaPlayer = new MediaPlayer(media);
                         mediaView.setMediaPlayer(mediaPlayer);
                         mediaView.setVisible(true);
                         mediaPlayer.setAutoPlay(true);
+                        Timer timer = new Timer();
+                        timer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                mediaView.setVisible(false);
+                                if (!mediaView.isVisible())
+                                    timer.cancel();
+                            }
+                        }, 8000);
                     } else {
-                        String path = "src/main/java/Interpreter/Graphics/Pictures/WinClip.mp4";
+                        String path = "src/main/java/Interpreter/Graphics/Pictures/LoseClip.mp4";
                         Media media = new Media(new File(path).toURI().toString());
                         MediaPlayer mediaPlayer = new MediaPlayer(media);
                         mediaView.setMediaPlayer(mediaPlayer);
                         mediaView.setVisible(true);
                         mediaPlayer.setAutoPlay(true);
+                        Timer timer = new Timer();
+                        timer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                mediaView.setVisible(false);
+                                if (!mediaView.isVisible())
+                                    timer.cancel();
+                            }
+                        }, 6000);
                     }
                     break;
                 case 2:
@@ -89,11 +110,6 @@ public class QuestionPageController implements Initializable {
             }
         }
         if (event.getSource().equals(back)) {
-
-            Statement statement = connection.createStatement();
-            String sql = "UPDATE players SET on_game = '0' WHERE on_game = '1' ";
-            statement.executeUpdate(sql);
-
             stage = (Stage) back.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(App.class.getResource("/StartPage.fxml"));

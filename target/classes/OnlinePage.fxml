@@ -3,14 +3,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane prefHeight="750.0" prefWidth="1400.0" styleClass="MainBG" stylesheets="@../Css/OnlinePage.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.OnlinePageController">
+<Pane prefHeight="750.0" prefWidth="1400.0" styleClass="MainBG" stylesheets="@../Css/OnlinePage.css" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.OnlinePageController">
     <children>
         <HBox alignment="CENTER" layoutX="50.0" layoutY="265.0" prefHeight="323.0" prefWidth="1300.0" spacing="200.0">
             <children>
-                <Button fx:id="register" maxHeight="120.0" maxWidth="400.0" mnemonicParsing="false" onAction="#onOnlineButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.7" prefHeight="120.0" prefWidth="400.0" styleClass="register" stylesheets="@../Css/OnlinePage.css" />
-                <Button fx:id="login" maxHeight="120.0" maxWidth="400.0" mnemonicParsing="false" onAction="#onOnlineButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.7" prefHeight="120.0" prefWidth="400.0" styleClass="login" stylesheets="@../Css/OnlinePage.css" />
+                <Button fx:id="register" maxHeight="120.0" maxWidth="400.0" mnemonicParsing="false" onAction="#onOnlineButtons"
+                        onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.7" prefHeight="120.0" prefWidth="400.0"
+                        styleClass="register" stylesheets="@../Css/OnlinePage.css"/>
+                <Button fx:id="login" maxHeight="120.0" maxWidth="400.0" mnemonicParsing="false" onAction="#onOnlineButtons"
+                        onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.7" prefHeight="120.0" prefWidth="400.0" styleClass="login"
+                        stylesheets="@../Css/OnlinePage.css"/>
             </children>
         </HBox>
-        <Button fx:id="back" layoutX="1210.0" layoutY="660.0" mnemonicParsing="false" onAction="#onOnlineButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back" stylesheets="@../Css/OnlinePage.css" />
+        <Button fx:id="back" layoutX="1210.0" layoutY="660.0" mnemonicParsing="false" onAction="#onOnlineButtons" onMouseEntered="#mouseEnter"
+                onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back" stylesheets="@../Css/OnlinePage.css"/>
     </children>
 </Pane>

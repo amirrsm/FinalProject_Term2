@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.effect.Blend;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -19,10 +21,12 @@ import java.util.TimerTask;
 import static Interpreter.Graphics.Controller.LoginPageController.getContentOfUrlConnection;
 
 public class WaitingPageController implements Initializable {
+    public ProgressIndicator progress;
     Timer timer = new Timer();
     public Button back;
 
     public void onBackButton(ActionEvent event) throws IOException {
+
         if (event.getSource().equals(back)) {
             Stage stage;
             Parent root;

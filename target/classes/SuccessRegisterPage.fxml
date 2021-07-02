@@ -3,9 +3,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane prefHeight="750.0" prefWidth="1400.0" styleClass="MainBG" stylesheets="@../Css/SuccessRegisterPage.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.SuccessRegisterPageController">
-   <children>
-      <Button fx:id="enter" layoutX="605.0" layoutY="570.0" mnemonicParsing="false" onAction="#onSuccessButtons" prefHeight="75.0" prefWidth="150.0" styleClass="Enter" stylesheets="@../Css/SuccessRegisterPage.css" />
-      <Button fx:id="back" layoutX="1060.0" layoutY="630.0" mnemonicParsing="false" onAction="#onSuccessButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back" stylesheets="@../Css/SuccessRegisterPage.css" />
-   </children>
+<Pane prefHeight="750.0" prefWidth="1400.0" styleClass="MainBG" stylesheets="@../Css/SuccessRegisterPage.css" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.SuccessRegisterPageController">
+    <children>
+        <Button fx:id="enter" layoutX="605.0" layoutY="570.0" mnemonicParsing="false" onAction="#onSuccessButtons" prefHeight="75.0" prefWidth="150.0"
+                styleClass="Enter" stylesheets="@../Css/SuccessRegisterPage.css"/>
+        <Button fx:id="back" layoutX="1060.0" layoutY="630.0" mnemonicParsing="false" onAction="#onSuccessButtons" onMouseEntered="#mouseEnter"
+                onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back"
+                stylesheets="@../Css/SuccessRegisterPage.css"/>
+    </children>
 </Pane>
