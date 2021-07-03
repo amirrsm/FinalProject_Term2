@@ -1,0 +1,16 @@
+.MainBG {
+    -fx-background-image: url("file:src/main/java/Interpreter/Graphics/Pictures/Onlinepage/RegisterBG.png");
+    -fx-background-size: 100% 100%;
+}
+
+.Signup {
+    -fx-background-image: url("file:src/main/java/Interpreter/Graphics/Pictures/Onlinepage/signup.png");
+    -fx-background-size: 100% 100%;
+    -fx-background-radius: 50;
+}
+
+.Back {
+    -fx-background-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Back.png');
+    -fx-background-size: 100% 100%;
+    -fx-background-radius: 30;
+}

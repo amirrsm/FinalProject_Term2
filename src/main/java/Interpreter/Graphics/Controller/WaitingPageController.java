@@ -59,6 +59,7 @@ public class WaitingPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         timer.schedule(new TimerTask() {
+            //todo ask about myID and opponentID
             @Override
             public void run() {
                 String result = getContentOfUrlConnection("https://sajjad8080.000webhostapp.com/search.php?myID=" + LoginPageController.myID);
@@ -68,6 +69,7 @@ public class WaitingPageController implements Initializable {
                     Parent root;
                     stage = (Stage) back.getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader();
+                    //todo change page to ChallengePage.
                     fxmlLoader.setLocation(App.class.getResource("/QuestionPage.fxml"));
                     try {
                         root = fxmlLoader.load();

@@ -27,13 +27,14 @@ public class RegisterPageController {
     public void onRegisterButtons(ActionEvent event) throws IOException {
         if (event.getSource().equals(register)) {
 
+            //todo testing register (turn on VPN)
             Thread thread = new Thread((Runnable) () -> {
                 String result = getContentOfUrlConnection("https://sajjad8080.000webhostapp.com/register.php?username=" + username.getText()
                         + "&password=" + password.getText() + "&email=" + email.getText());
                 if (result.equals("registered successfully")) {
                     Stage stage;
                     Parent root;
-                    stage = (Stage) back.getScene().getWindow();
+                    stage = (Stage) register.getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(App.class.getResource("/SuccessRegisterPage.fxml"));
                     try {
@@ -48,6 +49,7 @@ public class RegisterPageController {
                 //todo else (dialog box)
             });
             thread.start();
+            back.setStyle("-fx-background-color: lightgreen");
 
         }
 
@@ -56,7 +58,7 @@ public class RegisterPageController {
             Parent root;
             stage = (Stage) back.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("/StartPage.fxml"));
+            fxmlLoader.setLocation(App.class.getResource("/OnlinePage.fxml"));
             root = fxmlLoader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);

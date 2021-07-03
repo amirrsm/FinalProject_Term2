@@ -27,7 +27,6 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static Interpreter.Database.ProjectDB.connection;
 
 public class QuestionPageController implements Initializable {
     public TextArea codingBox;
@@ -38,7 +37,7 @@ public class QuestionPageController implements Initializable {
     public MediaView mediaView;
     public boolean setQuiz = false;
 
-    public void onQuestionButtons(ActionEvent event) throws IOException, SQLException {
+    public void onQuestionButtons(ActionEvent event) throws IOException {
         Stage stage;
         Parent root;
         if (event.getSource().equals(run)) {
@@ -53,66 +52,46 @@ public class QuestionPageController implements Initializable {
                 Reader.stream.delete(0, Reader.stream.length());
             }
 
-            switch (StoryPageController.stageSelected) {
-                //todo find to how setVisible of media player false after end of clip.
-                case 1:
-                    if (terminalBox.getText().equals(CorrectAnswers.getAnswer(1))) {
-                        String path = "src/main/java/Interpreter/Graphics/Pictures/WinClip.mp4";
-                        Media media = new Media(new File(path).toURI().toString());
-                        MediaPlayer mediaPlayer = new MediaPlayer(media);
-                        mediaView.setMediaPlayer(mediaPlayer);
-                        mediaView.setVisible(true);
-                        mediaPlayer.setAutoPlay(true);
-                        Timer timer = new Timer();
-                        timer.schedule(new TimerTask() {
-                            @Override
-                            public void run() {
-                                mediaView.setVisible(false);
-                                if (!mediaView.isVisible())
-                                    timer.cancel();
-                            }
-                        }, 8000);
-                    } else {
-                        String path = "src/main/java/Interpreter/Graphics/Pictures/LoseClip.mp4";
-                        Media media = new Media(new File(path).toURI().toString());
-                        MediaPlayer mediaPlayer = new MediaPlayer(media);
-                        mediaView.setMediaPlayer(mediaPlayer);
-                        mediaView.setVisible(true);
-                        mediaPlayer.setAutoPlay(true);
-                        Timer timer = new Timer();
-                        timer.schedule(new TimerTask() {
-                            @Override
-                            public void run() {
-                                mediaView.setVisible(false);
-                                if (!mediaView.isVisible())
-                                    timer.cancel();
-                            }
-                        }, 6000);
-                    }
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
-                case 7:
-                    break;
-                case 8:
-                    break;
-                case 9:
-                    break;
 
+            if (terminalBox.getText().equals(CorrectAnswers.getAnswer(StoryPageController.stageSelected))) {
+                String path = "src/main/java/Interpreter/Graphics/Pictures/WinClip.mp4";
+                Media media = new Media(new File(path).toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(media);
+                mediaView.setMediaPlayer(mediaPlayer);
+                mediaView.setVisible(true);
+                mediaPlayer.setAutoPlay(true);
+                Timer timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        mediaView.setVisible(false);
+                        if (!mediaView.isVisible())
+                            timer.cancel();
+                    }
+                }, 8000);
+            } else {
+                String path = "src/main/java/Interpreter/Graphics/Pictures/LoseClip.mp4";
+                Media media = new Media(new File(path).toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(media);
+                mediaView.setMediaPlayer(mediaPlayer);
+                mediaView.setVisible(true);
+                mediaPlayer.setAutoPlay(true);
+                Timer timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        mediaView.setVisible(false);
+                        if (!mediaView.isVisible())
+                            timer.cancel();
+                    }
+                }, 6000);
             }
         }
+
         if (event.getSource().equals(back)) {
             stage = (Stage) back.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("/StartPage.fxml"));
+            fxmlLoader.setLocation(App.class.getResource("/StoryPage.fxml"));
             root = fxmlLoader.load();
 
             Scene scene = new Scene(root);
@@ -134,51 +113,45 @@ public class QuestionPageController implements Initializable {
         }
     }
 
-    public void setQuestionBox() {
-        if (!setQuiz) {
-            switch (StoryPageController.stageSelected) {
-                case 1:
-                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q1.png')");
-                    setQuiz = true;
-                    break;
-                case 2:
-                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q2.png')");
-                    setQuiz = true;
-                    break;
-                case 3:
-                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q3.png')");
-                    setQuiz = true;
-                    break;
-                case 4:
-                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q4.png')");
-                    setQuiz = true;
-                    break;
-                case 5:
-                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q5.png')");
-                    setQuiz = true;
-                    break;
-                case 6:
-                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q6.png')");
-                    setQuiz = true;
-                    break;
-                case 7:
-                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q7.png')");
-                    setQuiz = true;
-                    break;
-                case 8:
-                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q8.png')");
-                    setQuiz = true;
-                    break;
-                case 9:
-                    questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q9.png')");
-                    setQuiz = true;
-                    break;
-            }
-        }
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        switch (StoryPageController.stageSelected) {
+            case 1:
+                questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q1.png')");
+                setQuiz = true;
+                break;
+            case 2:
+                questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q2.png')");
+                setQuiz = true;
+                break;
+            case 3:
+                questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q3.png')");
+                setQuiz = true;
+                break;
+            case 4:
+                questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q4.png')");
+                setQuiz = true;
+                break;
+            case 5:
+                questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q5.png')");
+                setQuiz = true;
+                break;
+            case 6:
+                questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q6.png')");
+                setQuiz = true;
+                break;
+            case 7:
+                questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q7.png')");
+                setQuiz = true;
+                break;
+            case 8:
+                questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q8.png')");
+                setQuiz = true;
+                break;
+            case 9:
+                questionBox.setStyle("-fx-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Questions/Q9.png')");
+                setQuiz = true;
+                break;
+        }
     }
 }
