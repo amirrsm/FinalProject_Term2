@@ -24,12 +24,14 @@ public class WaitingPageController implements Initializable {
     public ProgressIndicator progress;
     Timer timer = new Timer();
     public Button back;
+    String result = "0";
+    Stage stage;
+    Parent root;
 
     public void onBackButton(ActionEvent event) throws IOException {
 
         if (event.getSource().equals(back)) {
-            Stage stage;
-            Parent root;
+
             stage = (Stage) back.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(App.class.getResource("/StartPage.fxml"));
@@ -42,6 +44,26 @@ public class WaitingPageController implements Initializable {
         }
     }
 
+    public void refresh(){
+
+        if (!result.equals("wait")) {
+            LoginPageController.opponentID = Integer.parseInt(result);
+
+            stage = (Stage) back.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            //todo change page to ChallengePage.
+            fxmlLoader.setLocation(App.class.getResource("/QuestionPage.fxml"));
+            try {
+                root = fxmlLoader.load();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            timer.cancel();
+        }
+    }
 
     public void mouseEnter(MouseEvent event) {
         if (event.getSource().equals(back)) {
@@ -62,25 +84,7 @@ public class WaitingPageController implements Initializable {
             //todo ask about myID and opponentID
             @Override
             public void run() {
-                String result = getContentOfUrlConnection("https://sajjad8080.000webhostapp.com/search.php?myID=" + LoginPageController.myID);
-                if (!result.equals("wait")) {
-                    LoginPageController.opponentID = Integer.parseInt(result);
-                    Stage stage;
-                    Parent root;
-                    stage = (Stage) back.getScene().getWindow();
-                    FXMLLoader fxmlLoader = new FXMLLoader();
-                    //todo change page to ChallengePage.
-                    fxmlLoader.setLocation(App.class.getResource("/QuestionPage.fxml"));
-                    try {
-                        root = fxmlLoader.load();
-                        Scene scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    timer.cancel();
-                }
+                result = getContentOfUrlConnection("https://sajjad8080.000webhostapp.com/search.php?myID=" + LoginPageController.myID);
             }
         }, 2000, 1000);
     }

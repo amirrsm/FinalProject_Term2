@@ -46,10 +46,8 @@
             onMouseExited="#mouseExit" opacity="0.65" prefHeight="175.0" prefWidth="300.0" styleClass="Stage9"
             stylesheets="@../Css/StoryPage.css" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
     <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-        <children>
-            <Button fx:id="back" mnemonicParsing="false" onAction="#onStoryButtons" onMouseEntered="#mouseEnter"
-                    onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back"
-                    stylesheets="@../Css/StoryPage.css"/>
-        </children>
+        <Button fx:id="back" mnemonicParsing="false" onAction="#onStoryButtons" onMouseEntered="#mouseEnter"
+                onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back"
+                stylesheets="@../Css/StoryPage.css"/>
     </HBox>
 </GridPane>

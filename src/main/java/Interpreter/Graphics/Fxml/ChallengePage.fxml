@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
 
-
-<Pane prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.ChallengePageController">
-
+<Pane fx:id="challengeQ" prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Interpreter.Graphics.Controller.ChallengePageController">
+    <children>
+        <TextArea fx:id="codingBox" layoutX="60.0" layoutY="135.0" prefHeight="480.0" prefWidth="285.0"
+                  style="-fx-font-family: century; -fx-font-size: 20;" styleClass="CodingBox" stylesheets="@../Css/QuestionPage.css"/>
+        <TextArea fx:id="terminalBox" editable="false" layoutX="1075.0" layoutY="125.0" prefHeight="215.0" prefWidth="260.0"
+                  style="-fx-font-family: century; -fx-font-size: 20;"/>
+        <Button fx:id="run" layoutX="1130.0" layoutY="349.0" mnemonicParsing="false" onAction="#onChallengeButtons" prefHeight="40.0"
+                prefWidth="150.0" styleClass="Run" stylesheets="@../Css/QuestionPage.css"/>
+        <MediaView fx:id="mediaView" fitHeight="600.0" fitWidth="600.0" layoutX="400.0" layoutY="80.0" visible="false"/>
+        <TextArea layoutX="1056.0" layoutY="502.0" prefHeight="160.0" prefWidth="300.0" styleClass="ChatBox" stylesheets="@../Css/ChallengePage.css"/>
+        <TextArea layoutX="1076.0" layoutY="667.0" prefHeight="30.0" prefWidth="185.0" styleClass="TextBox" stylesheets="@../Css/ChallengePage.css"/>
+        <Button layoutX="1273.0" layoutY="667.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="65.0" styleClass="Send"
+                stylesheets="@../Css/ChallengePage.css"/>
+    </children>
 </Pane>

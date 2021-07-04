@@ -35,18 +35,7 @@ public class LoginPageController implements Initializable {
 
     public void onLoginButtons(ActionEvent event) throws IOException {
         if (event.getSource().equals(login)) {
-            if (canEnter(username.getText(), password.getText())) {
-                Stage stage;
-                Parent root;
-                stage = (Stage) login.getScene().getWindow();
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(App.class.getResource("/WaitingPage.fxml"));
-                root = fxmlLoader.load();
-
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            }
+            canEnter(username.getText(), password.getText());
         }
         if (event.getSource().equals(back)) {
             Stage stage;
@@ -54,6 +43,21 @@ public class LoginPageController implements Initializable {
             stage = (Stage) back.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(App.class.getResource("/StartPage.fxml"));
+            root = fxmlLoader.load();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
+
+    public void refresh() throws IOException {
+        if (state) {
+            Stage stage;
+            Parent root;
+            stage = (Stage) login.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(App.class.getResource("/WaitingPage.fxml"));
             root = fxmlLoader.load();
 
             Scene scene = new Scene(root);
@@ -86,6 +90,7 @@ public class LoginPageController implements Initializable {
             }
         });
         thread.start();
+
         return state;
     }
 
