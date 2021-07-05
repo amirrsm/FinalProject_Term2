@@ -1,7 +1,5 @@
 package Interpreter.Graphics.Controller;
 
-import static Interpreter.Database.ProjectDB.*;
-
 import Interpreter.Graphics.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -19,9 +17,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class LoginPageController implements Initializable {
@@ -114,7 +109,7 @@ public class LoginPageController implements Initializable {
             while ((line = reader.readLine()) != null) {
                 builder.append(line);
             }
-            return builder.toString();
+            return builder.toString().trim();
         } catch (IOException e) {
             e.printStackTrace();
         }

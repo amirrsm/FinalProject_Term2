@@ -1,6 +1,5 @@
 package Interpreter.Graphics;
 
-import Interpreter.Database.ProjectDB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

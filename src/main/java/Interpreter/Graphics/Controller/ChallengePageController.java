@@ -1,7 +1,6 @@
 package Interpreter.Graphics.Controller;
 
 import Interpreter.Core.Reader;
-import Interpreter.Graphics.CorrectAnswers;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -25,6 +24,10 @@ public class ChallengePageController implements Initializable {
     public TextArea terminalBox;
     public Button run;
     public MediaView mediaView;
+    public TextArea chatBox;
+    public TextArea chatText;
+    public Button send;
+    public static boolean chatting;
 
     public void onChallengeButtons(ActionEvent event) {
         Stage stage;
@@ -42,7 +45,7 @@ public class ChallengePageController implements Initializable {
             }
 
 
-            if (terminalBox.getText().equals(CorrectAnswers.getAnswer(StoryPageController.stageSelected))) {
+            if (terminalBox.getText().equals("1\n")) {
                 String path = "src/main/java/Interpreter/Graphics/Pictures/WinClip.mp4";
                 Media media = new Media(new File(path).toURI().toString());
                 MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -77,13 +80,45 @@ public class ChallengePageController implements Initializable {
                 }, 6000);
             }
         }
+        if (event.getSource().equals(send)) {
+            chatting = true;
+        }
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         challengeQ.setStyle("-fx-background-image: url('file: src/main/java/Interpreter/Graphics/Pictures/Onlinepage/challenge1.png'); " +
                 "-fx-background-size: 100% 100%");
+/*
+        Thread thread = new Thread(() -> {
+            Timer t = new Timer();
+            t.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    if(chatting){
+                        getContentOfUrlConnection("https://sajjad8080.000webhostapp.com/chat.php?myID=" + LoginPageController.myID + "&chat=" + chatText);
+                        chatText.setText(null);
+                        chatting = false;
+                    }
+                    String result = getContentOfUrlConnection("https://sajjad8080.000webhostapp.com/check.php?myID=" + LoginPageController.myID);
+                    int state = -1;
+                    if (result.length() == 1)
+                        state = Integer.parseInt(result);
+                    if (state == 0) {
+                        falseDialog = true;
+                        t.cancel();
+                        playDialog(false);
+                    } else if (state != 0 && !result.equals("")) {
+                        chat.append("opponent: " + result + "\n");
+                    } else if (ok)
+                        getContentOfUrlConnection("https://sajjad8080.000webhostapp.com/winner.php?myID=" + LoginPageController.myID + "&opponentID=" + LoginPageController.opponentID);
+                }
+            }, 0, 1000);
+        });
+        thread.start();
+        */
     }
     //todo complete challenge page
     //todo chat box

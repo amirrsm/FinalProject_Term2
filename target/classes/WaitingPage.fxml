@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-
-<Pane onMouseMoved="#refresh" prefHeight="750.0" prefWidth="1400.0" style="-fx-background-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Onlinepage/welcome.png') ; -fx-background-size: 100% 100%" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.WaitingPageController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.Pane?>
+<Pane onMouseMoved="#refresh" prefHeight="750.0" prefWidth="1400.0"
+      style="-fx-background-image: url('file:src/main/java/Interpreter/Graphics/Pictures/Onlinepage/welcome.png') ; -fx-background-size: 100% 100%"
+      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Interpreter.Graphics.Controller.WaitingPageController">
     <children>
-        <Button fx:id="back" layoutX="1140.0" layoutY="600.0" mnemonicParsing="false" onAction="#onBackButton" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back" stylesheets="@../Css/QuestionPage.css" />
+        <Button fx:id="back" layoutX="1140.0" layoutY="600.0" mnemonicParsing="false" onAction="#onBackButton" onMouseEntered="#mouseEnter"
+                onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back"
+                stylesheets="@../Css/QuestionPage.css"/>
         <ProgressIndicator fx:id="progress" cache="true" layoutX="674.0" layoutY="348.0" prefHeight="100.0" prefWidth="100.0">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-         <effect>
-            <ColorAdjust contrast="1.0" hue="1.0" saturation="1.0" />
-         </effect></ProgressIndicator>
+            <cursor>
+                <Cursor fx:constant="DEFAULT"/>
+            </cursor>
+            <effect>
+                <ColorAdjust contrast="1.0" hue="1.0" saturation="1.0"/>
+            </effect>
+        </ProgressIndicator>
     </children>
 </Pane>

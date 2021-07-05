@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<Pane onMouseMoved="#refresh" prefHeight="750.0" prefWidth="1400.0" styleClass="MainBG" stylesheets="@../Css/RegisterPage.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.RegisterPageController">
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<Pane onMouseMoved="#refresh" prefHeight="750.0" prefWidth="1400.0" styleClass="MainBG" stylesheets="@../Css/RegisterPage.css"
+      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Interpreter.Graphics.Controller.RegisterPageController">
     <children>
         <VBox alignment="TOP_CENTER" layoutX="510.0" layoutY="190.0" prefHeight="430.0" prefWidth="380.0" spacing="50.0">
             <children>
-                <TextField fx:id="username" alignment="CENTER" prefHeight="30.0" promptText="Username" style="-fx-background-radius: 10;" />
-                <TextField fx:id="password" alignment="CENTER" prefHeight="30.0" promptText="Password" style="-fx-background-radius: 10;" />
-                <TextField fx:id="email" alignment="CENTER" prefHeight="30.0" promptText="Email" style="-fx-background-radius: 10;" />
-                <Button fx:id="register" mnemonicParsing="false" onAction="#onRegisterButtons" prefHeight="75.0" prefWidth="150.0" styleClass="Signup" stylesheets="@../Css/RegisterPage.css" />
+                <TextField fx:id="username" alignment="CENTER" prefHeight="30.0" promptText="Username" style="-fx-background-radius: 10;"/>
+                <TextField fx:id="password" alignment="CENTER" prefHeight="30.0" promptText="Password" style="-fx-background-radius: 10;"/>
+                <TextField fx:id="email" alignment="CENTER" prefHeight="30.0" promptText="Email" style="-fx-background-radius: 10;"/>
+                <Button fx:id="register" mnemonicParsing="false" onAction="#onRegisterButtons" prefHeight="75.0" prefWidth="150.0" styleClass="Signup"
+                        stylesheets="@../Css/RegisterPage.css"/>
             </children>
             <padding>
-                <Insets left="40.0" right="40.0" top="80.0" />
+                <Insets left="40.0" right="40.0" top="80.0"/>
             </padding>
         </VBox>
-        <Button fx:id="back" layoutX="1170.0" layoutY="650.0" mnemonicParsing="false" onAction="#onRegisterButtons" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back" stylesheets="@../Css/RegisterPage.css" />
+        <Button fx:id="back" layoutX="1170.0" layoutY="650.0" mnemonicParsing="false" onAction="#onRegisterButtons" onMouseEntered="#mouseEnter"
+                onMouseExited="#mouseExit" opacity="0.55" prefHeight="75.0" prefWidth="150.0" styleClass="Back"
+                stylesheets="@../Css/RegisterPage.css"/>
     </children>
 </Pane>

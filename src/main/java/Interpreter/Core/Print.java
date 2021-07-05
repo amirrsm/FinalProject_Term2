@@ -17,7 +17,7 @@ public class Print {
                 Reader.stream.append("\n");
                 return floatData.get(output).toString().length();
             } else {
-                System.out.println("not found!");
+                Reader.stream.append("not found!\n");
                 return 10;
             }
         }

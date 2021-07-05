@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <GridPane alignment="CENTER" hgap="30.0" prefHeight="750.0" prefWidth="1400.0" styleClass="MainBackground"
           stylesheets="@../Css/StoryPage.css" vgap="30.0" xmlns="http://javafx.com/javafx/11.0.1"
           xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interpreter.Graphics.Controller.StoryPageController">

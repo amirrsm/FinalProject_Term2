@@ -8,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressIndicator;
-import javafx.scene.effect.Blend;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -44,7 +43,7 @@ public class WaitingPageController implements Initializable {
         }
     }
 
-    public void refresh(){
+    public void refresh() {
 
         if (!result.equals("wait")) {
             LoginPageController.opponentID = Integer.parseInt(result);
